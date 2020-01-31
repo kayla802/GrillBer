@@ -90,6 +90,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\WebApiConfig.cs" />
+    <Compile Include="Controllers\GrillController.cs" />
     <Compile Include="Controllers\UserController.cs" />
     <Compile Include="Data_Access\DaoBase.cs" />
     <Compile Include="Data_Access\RentalDao.cs" />
