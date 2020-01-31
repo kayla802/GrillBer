@@ -30,5 +30,15 @@ namespace GrillBer.Backend.Data_Access
             }
 
         }
+
+        public User GetSingleUserById(Guid user)
+        {
+            using (var db = new LiteDatabase(GrillBerDBLocation))
+            {
+                var userCol = db.GetCollection<User>("Users");
+                return userCol.FindById(user);
+            }
+
+        }
     }
 }
