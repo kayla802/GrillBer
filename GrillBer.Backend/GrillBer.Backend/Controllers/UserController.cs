@@ -9,6 +9,7 @@ using System.Web.Http;
 
 namespace GrillBer.Backend.Controllers
 {
+    [RoutePrefix("api/user")]
     public class UserController : ApiController
     {
         [HttpGet]

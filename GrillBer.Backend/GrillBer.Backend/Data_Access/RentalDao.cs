@@ -30,5 +30,10 @@ namespace GrillBer.Backend.Data_Access
                 return newRental;
             }
         }
+
+        internal static Rental newRental(Rental inRental)
+        {
+            throw new NotImplementedException();
+        }
     }
 }
