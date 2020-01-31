@@ -18,5 +18,12 @@ namespace GrillBer.Backend.Controllers
             var userDao = new UserDao();
             return userDao.GetSingleUserById(userId);
         }
+
+        [HttpPost]
+        public User NewUser(User user)
+        {
+            var userDao = new UserDao();
+            return userDao.NewUser(user);
+        }
     }
 }
