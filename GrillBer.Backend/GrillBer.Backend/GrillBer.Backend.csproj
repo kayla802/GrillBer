@@ -91,6 +91,7 @@
   <ItemGroup>
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Data_Access\DaoBase.cs" />
+    <Compile Include="Data_Access\RentalDao.cs" />
     <Compile Include="Data_Access\UserDao.cs" />
     <Compile Include="Data_Access\GrillDao.cs" />
     <Compile Include="Global.asax.cs">

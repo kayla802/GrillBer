@@ -1,5 +1,6 @@
 ﻿using GrillBer.Backend.Data_Acess;
 using GrillBer.Backend.Models;
+using LiteDB;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -14,7 +15,7 @@ namespace GrillBer.Backend.Data_Access
             using (var db = new LiteDatabase(GrillBerDBLocation))
             {
                 var grillcol = db.GetCollection<Grill>("Grills");
-                return grillcol.FindByID(grillID);
+                return grillcol.FindById(grillID);
             }
         }
     }
