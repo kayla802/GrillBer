@@ -4,8 +4,8 @@ using LiteDB;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Linq.Expressions;
 using System.Web;
-using LiteDB;
 
 namespace GrillBer.Backend.Data_Access
 {
@@ -20,16 +20,29 @@ namespace GrillBer.Backend.Data_Access
             }
         }
 
+        public Grill[] GetGrills(Expression<Func<Grill, bool>> predicate = null)
+        {
+            using (var db = new LiteDatabase(GrillBerDBLocation))
+            {
+                var grillCol = db.GetCollection<Grill>("Grills");
+                return predicate == null
+                    ? grillCol.FindAll().ToArray()
+                    : grillCol.Find(predicate).ToArray();
+            }
+
+        }
+
+                     
         public Grill CreateNewGrill(Grill inGrill)
         {
             using (var db = new LiteDatabase(GrillBerDBLocation))
             {
                 var grillCol = db.GetCollection<Grill>("Grills");
                 var userDao = new UserDao();
-                var foundUser = userDao.GetSingleUserById(owner);
+                var foundUser = userDao.GetSingleUserById(inGrill.Owner);
                 if (foundUser == null)
                 {
-                    throw new KeyNotFoundException("User doesn't exist: " + owner.ToSting());
+                    throw new KeyNotFoundException("User doesn't exist: " + inGrill.Owner.ToString());
                 }
                 var newGrill = new Grill()
                 {
@@ -42,11 +55,11 @@ namespace GrillBer.Backend.Data_Access
                     Owner = inGrill.Owner,
                     RenterId = inGrill.RenterId
                 };
+
                 grillCol.Insert(newGrill);
                 return newGrill;
-            
-                
             }
+              
         }
 
     }
