@@ -112,7 +112,7 @@ function populateCityUi(grills) {
     for (let grill of grills) {
         let newCityOption = $('<option>');
         newCityOption.val(grill.Id);
-        newCityOption.text(`${grill.city}`);
+        newCityOption.text(`${grill.City}`);
         citySelect.append(newCityOption);
     }
 }
