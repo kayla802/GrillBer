@@ -4,7 +4,7 @@
     <!-- Get the css from the main page -->
     <link rel="stylesheet" type="text/css" href="../index.css">
     <!-- custom css -->
-    <link rel="stylesheet" type="text/css" href="pie_page.css">
+    <link rel="stylesheet" type="text/css" href="grillpage.css">
 
     <!-- jQuery JS -->
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"
@@ -23,8 +23,8 @@
             <img src="../images/PieAuctionLogo.jpg" class="width-165-px" />
             </a>
             <div class="flex-column flex-grow-1 ml-2">
-                <h2 id="pie-name-header" class="text-center m-1">Test Grill</h2>
-                <h3 id="pie-maker-header" class="text-center m-1">Made by Mason Stone</h3>
+                <h2 id="model-name-header" class="text-center m-1">Test Grill</h2>
+                <h3 id="grill-owner-header" class="text-center m-1">Owned by Test User</h3>
                 <div id="pie-prop-div" class="flex-row flex-justify-space-around">
                 </div>
             </div>
@@ -32,32 +32,34 @@
         <hr class="width-100">
         <div id="main-body" class="mt-2">
             <div class="flex-row flex-justify-center">
-                <img id="pie-image" src="https://www.homedepot.com/p/RiverGrille-Stampede-37-5-in-Charcoal-Grill-CG2053904-RG/206291330" class="width-165-px">
-                <div id="pie-info-div" class="ml-2">
+                <img id="pie-image" src="https://imgur.com/r/grilling/EJVUooJ" class="width-165-px">
+                <div id="grill-info-div" class="ml-2">
                     <h4>
-                        Current Bid: <span id="current-bid">$999</span>
+                        Available: <span id="grill-available">3.2.19</span>
                     </h4>
                     <div class="ml-2 flex-row">
-                        <span>Place a bid:</span>
+                        <span>Start Rental:</span>
                         <select id="user-select" class="ml-2">
-                            <option val="123">A User</option>
+                            <option val="null"></option>
                         </select>
                         <span class="ml-2">
-                            $<input type="number" value="990" min="990" class="">
+                            <label for="start">Start date:</label>
+                            <input type="date" id="start" name="trip-start"
+                            value="2018-07-22"
+                            min="2020-01-01" max="2099-12-31">
+                            <label for="end">End Rental:</label>
+                            <input type="date" id="start" name="trip-start"
+                            value="2018-07-22"
+                            min="2020-01-01" max="2099-12-31">
                         </span>
                     </div>
                     <div>
-                        Time left: <span id="time-left">12 hours 2 minutes</span>
+                        Days Left: <span id="days-left">13 days</span>
                     </div>
+                    
                     <div>
-                        Start time: <span id="start-time">Jan 11, 2020</span>
-                    </div>
-                    <div>
-                        Previous Bids:
-                        <ul>
-                            <li>Pearse Hutson - $999</li>
-                            <li>Natalie Botbot - $999</li>
-                        </ul>
+                        Rating: 1
+                        
                     </div>
                 </div>
             </div>
