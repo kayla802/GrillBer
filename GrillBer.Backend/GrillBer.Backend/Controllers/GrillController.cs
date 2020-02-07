@@ -20,7 +20,7 @@ namespace GrillBer.Backend.Controllers
         }
 
         [HttpGet]
-        public Grill[] GetGrills(string brand = null, string model = null, string city = null, int? cost, int? rating)
+        public Grill[] GetGrills(int? cost, int? rating, string brand = null, string model = null, string city = null)
         {
             var grillDao = new GrillDao();
             IEnumerable<Grill> grills = grillDao.GetGrills();
