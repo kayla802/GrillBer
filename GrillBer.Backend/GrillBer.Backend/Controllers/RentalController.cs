@@ -9,15 +9,15 @@ using System.Web.Http;
 
 namespace GrillBer.Backend.Controllers
 {
-    [RoutePrefix("api/rentals")]
+    [RoutePrefix("api/rental")]
     public class RentalController : ApiController
     {
                 
-            [HttpPost]
+        [HttpPost]
         public Rental NewRental(Rental inRental)
         {
             RentalDao rentalDao = new RentalDao();
-            return RentalDao.newRental(inRental);
+            return rentalDao.NewRental(inRental);
         }
 
     }

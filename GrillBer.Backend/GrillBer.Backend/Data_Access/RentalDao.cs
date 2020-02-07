@@ -1,4 +1,5 @@
 ﻿using GrillBer.Backend.Data_Acess;
+using GrillBer.Backend.Data_Acess;
 using GrillBer.Backend.Models;
 using LiteDB;
 using System;
@@ -18,8 +19,8 @@ namespace GrillBer.Backend.Data_Access
                 Rental newRental = new Rental()
                 {
                     Id = Guid.NewGuid(),
-                    User = inRental.Id,
-                    Grill = inRental.Id,
+                    User = inRental.User,
+                    Grill = inRental.Grill,
                     Start = DateTime.Now,
                     End = DateTime.Now
 
@@ -31,9 +32,9 @@ namespace GrillBer.Backend.Data_Access
             }
         }
 
-        internal static Rental newRental(Rental inRental)
-        {
-            throw new NotImplementedException();
-        }
+        //internal static Rental newRental(Rental inRental)
+        //{
+        //    throw new NotImplementedException();
+        //}
     }
 }
