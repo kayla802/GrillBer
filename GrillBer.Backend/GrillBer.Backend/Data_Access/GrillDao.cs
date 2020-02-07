@@ -62,5 +62,13 @@ namespace GrillBer.Backend.Data_Access
 
 		}
 
+		public void DeleteGrill(Guid grillId)
+		{
+			using (var db = new LiteDatabase(GrillBerDBLocation))
+			{
+				var grillCol = db.GetCollection<Grill>("Grills");
+				grillCol.Delete(grillId);
+			}
+		}
 	}
 }

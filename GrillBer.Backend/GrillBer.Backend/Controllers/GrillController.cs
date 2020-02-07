@@ -60,5 +60,13 @@ namespace GrillBer.Backend.Controllers
             var grillDao = new GrillDao();
             return grillDao.CreateNewGrill(inGrill);
         }
+
+		[HttpDelete]
+		[Route("{grillId:Guid}")]
+		public void DeleteGrill(Guid grillId)
+		{
+			var grillDao = new GrillDao();
+			grillDao.DeleteGrill(grillId);
+		}
     }
 }
