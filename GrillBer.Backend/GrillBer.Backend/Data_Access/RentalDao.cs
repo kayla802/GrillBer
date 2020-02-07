@@ -22,15 +22,23 @@ namespace GrillBer.Backend.Data_Access
                     User = inRental.User,
                     Grill = inRental.Grill,
                     Start = DateTime.Now,
-                    End = DateTime.Now
+                    End = inRental.End != default(DateTime) ? inRental.End : DateTime.Now.AddHours(2)
 
-
-                };
+				};
 
                 RentalCol.Insert(newRental);
                 return newRental;
             }
         }
+
+		public IEnumerable<Rental> GetAllRentals()
+		{
+			using (var db = new LiteDatabase(GrillBerDBLocation))
+			{
+				var RentalCol = db.GetCollection<Rental>("Rentals");
+				return RentalCol.FindAll().ToArray();
+			}
+		}
 
         //internal static Rental newRental(Rental inRental)
         //{
