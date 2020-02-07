@@ -1,0 +1,76 @@
+<html>
+
+<head>
+    <!-- Get the css from the main page -->
+    <link rel="stylesheet" type="text/css" href="../index.css">
+    <!-- custom css -->
+    <link rel="stylesheet" type="text/css" href="pie_page.css">
+
+    <!-- jQuery JS -->
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"
+        integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+
+    <!-- Moment JS for dates -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
+    <!-- main.js -->
+    <script src="pie_page.js"></script>
+</head>
+
+<body>
+    <div class="flex-column">
+        <div id="top-bar" class="flex-row">
+            <a href="../index.html">
+            <img src="../images/PieAuctionLogo.jpg" class="width-165-px" />
+            </a>
+            <div class="flex-column flex-grow-1 ml-2">
+                <h2 id="pie-name-header" class="text-center m-1">Test Grill</h2>
+                <h3 id="pie-maker-header" class="text-center m-1">Made by Mason Stone</h3>
+                <div id="pie-prop-div" class="flex-row flex-justify-space-around">
+                </div>
+            </div>
+        </div>
+        <hr class="width-100">
+        <div id="main-body" class="mt-2">
+            <div class="flex-row flex-justify-center">
+                <img id="pie-image" src="https://www.homedepot.com/p/RiverGrille-Stampede-37-5-in-Charcoal-Grill-CG2053904-RG/206291330" class="width-165-px">
+                <div id="pie-info-div" class="ml-2">
+                    <h4>
+                        Current Bid: <span id="current-bid">$999</span>
+                    </h4>
+                    <div class="ml-2 flex-row">
+                        <span>Place a bid:</span>
+                        <select id="user-select" class="ml-2">
+                            <option val="123">A User</option>
+                        </select>
+                        <span class="ml-2">
+                            $<input type="number" value="990" min="990" class="">
+                        </span>
+                    </div>
+                    <div>
+                        Time left: <span id="time-left">12 hours 2 minutes</span>
+                    </div>
+                    <div>
+                        Start time: <span id="start-time">Jan 11, 2020</span>
+                    </div>
+                    <div>
+                        Previous Bids:
+                        <ul>
+                            <li>Pearse Hutson - $999</li>
+                            <li>Natalie Botbot - $999</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <hr class="width-100">
+        <div id="more-like-div">
+            <h3 class="text-center">More Pies Like This One</h3>
+            <div id="recommended-pie-div" class="flex-row flex-justify-space-around">
+
+            </div>
+        </div>
+    </div>
+
+</body>
+
+</html>

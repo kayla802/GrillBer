@@ -159,7 +159,7 @@ p {
 }
 
 table {
-    color: #FF39EA;
+    color: rgb(0, 0, 0);
     font-size: 22px;
     width: 100%;
 }
@@ -170,7 +170,7 @@ table, td {
 
 thead {
     background-color: #FAEBD7;
-    font-style: italic;
+    
 }
 
 tr:nth-child(odd) {
@@ -179,7 +179,7 @@ tr:nth-child(odd) {
 
 td:nth-last-child(-n+3) {
     text-align: center;
-    text-decoration: underline;
+   
 }
 
 h2 {
@@ -190,8 +190,8 @@ h2 {
 }
 
 h3 {
-    color: #18CCBB;
-    font-size: 22px;
+    color: #000000;
+    font-size: 18px;
     text-align: center;
 }
 
