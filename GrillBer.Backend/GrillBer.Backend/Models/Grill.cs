@@ -13,7 +13,7 @@ namespace GrillBer.Backend.Models
         public string City { get; set; }
         public int Cost { get; set; }
         public int Rating { get; set; }
-        public Guid Owner { get; set; }
-        public Guid RenterId { get; set; }
+        public Guid OwnerId { get; set; }
+        //public Guid RenterId { get; set; }
     }
 }

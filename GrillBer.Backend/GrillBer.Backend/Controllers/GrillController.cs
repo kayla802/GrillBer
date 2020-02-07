@@ -9,18 +9,19 @@ using System.Web.Http;
 
 namespace GrillBer.Backend.Controllers
 {
-    public class GrillController : ApiController
+	[RoutePrefix("api/grill")]
+	public class GrillController : ApiController
     {
         [HttpGet]
-        [Route("{gillId: Guid}")]
-        public Grill GetSingleGrill(Guid grillID)
+        [Route("{grillId:Guid}")]
+        public Grill GetSingleGrill(Guid grillId)
         {
             var grillDao = new GrillDao();
-            return grillDao.GetSingleGrillById(grillID);
+            return grillDao.GetSingleGrillById(grillId);
         }
 
         [HttpGet]
-        public Grill[] GetGrills(int? cost, int? rating, string brand = null, string model = null, string city = null)
+        public Grill[] GetGrills(string brand = null, string model = null, string city = null, int? cost = null, int? rating = null)
         {
             var grillDao = new GrillDao();
             IEnumerable<Grill> grills = grillDao.GetGrills();
