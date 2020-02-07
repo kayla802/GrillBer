@@ -1,0 +1,225 @@
+<head>
+    <style>
+        body {
+            margin: 0px;
+            display: inline-block;
+
+        }
+
+        h1 {
+
+            color: #FF39EA;
+            font-weight: bold;
+            font-size: 50px;
+            background-color: #18CCBB;
+            text-align: center;
+
+
+        }
+
+        p {
+            color: #48b8ad;
+
+            font-size: 22px;
+        }
+
+
+
+        table {
+            color: #FF39EA;
+            font-size: 22px;
+            width: 100%;
+
+
+        }
+
+        table,
+        td {
+            border: solid #48B8AD
+        }
+
+        thead {
+            background-color: #FCE688;
+            font-style: italic;
+        }
+
+        tr:nth-child(odd) {
+            background-color: #FCE68850;
+        }
+
+        td:nth-last-child(-n+3) {
+            text-align: center;
+            text-decoration: underline;
+        }
+
+        h2 {
+            color: #B315A3;
+            text-decoration: underline;
+            font-size: 22px;
+            text-align: center;
+        }
+
+        h3 {
+            color: #18CCBB;
+            font-size: 22px;
+            text-align: center;
+
+        }
+
+        form {
+            color: #FF39EA;
+        }
+
+        .half {
+            margin-left: 20%;
+            margin-right: 20%;
+        }
+
+        .border {
+            border-radius: 25px;
+            border: 2px solid #FF39EA;
+            padding: 5px;
+            margin: 3%;
+
+        }
+
+        .FAQ {
+            width: 40%;
+            margin: 8px;
+            display: inline-block;
+            
+        }
+
+        .align {
+            display: flex;
+            align-items: flex-start;
+        }
+
+        .flextable {
+            display: flex;
+            justify-content: justify;
+            text-align: justify;
+        }
+        .flexform {
+            display: flex;
+            justify-content: center;
+        }
+    </style>
+</head>
+
+<h1>GrillBer!</h1>
+<div class="half">
+    <p>GrillBer is exactly like it sounds: Uber for grills! Let me set the scene. You live in a dense urban environment,
+        in a studio apartment on the 20th floor of an apartment building, but you want to put on a cookout! You don't
+        have the space or the budget to buy a high quality grill, but your local park doesn't provide public access
+        grills for your cookout. What do you do? That's where GrillBer comes in! GrillBer is a rental and delivery
+        service for grills! Grill renters can put up the specs and descriptions for their grills, and users can rent
+        them for specific amounts of time! The grill owner will drop off the grill at the designated time and location,
+        and then pick it back up when the user is finished! Just think of the possibilities!</p>
+    <div class="flextable">
+        <table>
+            <thead>
+                <td>Brand and Model</td>
+                <td>Username</td>
+                <td>City</td>
+                <td>Cost/hour</td>
+                <td>Delivery Cost</strong></td>
+                <td>Grill Rating (1-5)</td>
+
+            </thead>
+            <tbody>
+                <tr>
+                    <td>CharBroil</td>
+                    <td>Harry</td>
+                    <td>Prarie Village</td>
+                    <td>$4</td>
+                    <td>$5</td>
+                    <td>2</td>
+                </tr>
+                <tr>
+                    <td>GrateGrill</td>
+                    <td>Ron</td>
+                    <td>Raytown</td>
+                    <td>$10</td>
+                    <td>$5</td>
+                    <td>3.5</td>
+                </tr>
+                <tr>
+                    <td>ReallyGrateGrill</td>
+                    <td>Hermione</td>
+                    <td>Overland Park</td>
+                    <td>$7</td>
+                    <td>$5</td>
+                    <td>4.5</td>
+                </tr>
+                <tr>
+                    <td>OKGrill</td>
+                    <td>Neville</td>
+                    <td>Kansas City</td>
+                    <td>$6</td>
+                    <td>$5</td>
+                    <td>2.5</td>
+                </tr>
+                <tr>
+                    <td>Grill 5.0</td>
+                    <td>Luna</td>
+                    <td>Parkville</td>
+                    <td>$8</td>
+                    <td>$5</td>
+                    <td>5</td>
+                </tr>
+            </tbody>
+
+        </table>
+    </div>
+    <div class="align">
+        <div class="FAQ">
+            <h2>FAQ </h2>
+            <div class="border">
+                <h3>Do I have to provide my own charcoal or propane tank?</h3>
+                <p>Nope! Each grill rental includes either a full propane tank or a bag of charcoal depending on the
+                    grill
+                    you
+                    choose.</p>
+            </div>
+            <div class="border">
+                <h3>What do I do if I can't light the grill?</h3>
+                <p>Each grill has a comprehensive user guide. If you still can't get the grill going then you can call
+                    our
+                    24
+                    hour
+                    customer service line (800-76GRILL) to get help from one of our certified grill experts</p>
+            </div>
+            <div class="border">
+                <h3>I live in an apartment and don't have access to a patio or outside area,<br> can I use the grill
+                    indoors?
+                </h3>
+                <p>No.</p>
+            </div>
+        </div>
+
+        <div class="FAQ">
+            <h2>How To Rent A Grill Today?</h2>
+            <p>First, you get on your phone to download the app from the app store. 
+                Secondly, find a grill-friend to help you out. Then call us at 800-76GRILL to reserve your grill today!</p>
+
+            <h2>WHY?</h2>
+            <p>Because everyone loves a cookout with the help of their grill-friend!</p>
+        </div>
+    </div>
+    <h2>Interested in GrillBer? Complete the form below for more info!</h2>
+<div class="flexform">
+    <form>
+        Name:<br><input type="text" name="name">
+        <br>
+        email:<br><input type="text" name="email">
+        <br>
+        Phone Number:<br><input type="number" name="PhoneNumber">
+        <br>
+        On a Scale From 1-10, how likely are you to reccomend GrillBer to a Friend?:<br><input type="number"
+            name="reccomendationRating">
+        <br>
+        <input type="submit">
+    </form>
+    </div>
+</div>
