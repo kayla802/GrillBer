@@ -1,8 +1,22 @@
 <head>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <style>
         body {
+            background-image: url("https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/grill-royalty-free-image-475200354-1554432211.jpg?");
+            background-position: center;
+            background-size: cover;
+            color: black;
             margin: 0px;
-            display: inline-block;
+           
+            
+            
+
+        }
+        .background {
+            background: rgba(255, 255, 255, 0.685);
+            white-space: nowrap;
+            margin: 10%;
+            margin-top: 0%;
 
         }
 
@@ -13,6 +27,7 @@
             font-size: 50px;
             background-color: #18CCBB;
             text-align: center;
+            margin: 0;
 
 
         }
@@ -73,6 +88,7 @@
         .half {
             margin-left: 20%;
             margin-right: 20%;
+            
         }
 
         .border {
@@ -104,73 +120,156 @@
             display: flex;
             justify-content: center;
         }
+        .topnav {
+  overflow: hidden;
+  background-color: #e9e9e9;
+}
+
+.topnav a {
+  float: left;
+  display: block;
+  color: black;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 17px;
+}
+
+.topnav a:hover {
+  background-color: #ddd;
+  color: black;
+}
+
+.topnav a.active {
+  background-color: #2196F3;
+  color: white;
+}
+
+.topnav .search-container {
+  float: right;
+}
+
+.topnav input[type=text] {
+  padding: 6px;
+  margin-top: 8px;
+  font-size: 17px;
+  border: none;
+}
+
+.topnav .search-container button {
+  float: right;
+  padding: 6px 10px;
+  margin-top: 8px;
+  margin-right: 16px;
+  background: #ddd;
+  font-size: 17px;
+  border: none;
+  cursor: pointer;
+}
+
+.topnav .search-container button:hover {
+  background: #ccc;
+}
+
+@media screen and (max-width: 600px) {
+  .topnav .search-container {
+    float: none;
+  }
+  .topnav a, .topnav input[type=text], .topnav .search-container button {
+    float: none;
+    display: block;
+    text-align: left;
+    width: 100%;
+    margin: 0;
+    padding: 14px;
+  }
+  .topnav input[type=text] {
+    border: 1px solid #ccc;  
+  }
+}
+
     </style>
 </head>
 
 <h1>GrillBer!</h1>
-<div class="half">
-    <p>GrillBer is exactly like it sounds: Uber for grills! Let me set the scene. You live in a dense urban environment,
-        in a studio apartment on the 20th floor of an apartment building, but you want to put on a cookout! You don't
-        have the space or the budget to buy a high quality grill, but your local park doesn't provide public access
-        grills for your cookout. What do you do? That's where GrillBer comes in! GrillBer is a rental and delivery
-        service for grills! Grill renters can put up the specs and descriptions for their grills, and users can rent
-        them for specific amounts of time! The grill owner will drop off the grill at the designated time and location,
-        and then pick it back up when the user is finished! Just think of the possibilities!</p>
-    <div class="flextable">
-        <table>
-            <thead>
-                <td>Brand and Model</td>
-                <td>Username</td>
-                <td>City</td>
-                <td>Cost/hour</td>
-                <td>Delivery Cost</strong></td>
-                <td>Grill Rating (1-5)</td>
+<div class="topnav">
+    <a class="active" href="#home">Home</a>
+    <a href="#about">About</a>
+    <a href="#contact">Contact</a>
+    <div class="search-container">
+      <form action="/action_page.php">
+        <input type="text" placeholder="Search.." name="search">
+        <button type="submit"><i class="fa fa-search"></i></button>
+      </form>
+    </div>
+  </div>
+<div class="background">
 
-            </thead>
-            <tbody>
-                <tr>
-                    <td>CharBroil</td>
-                    <td>Harry</td>
-                    <td>Prarie Village</td>
-                    <td>$4</td>
-                    <td>$5</td>
-                    <td>2</td>
-                </tr>
-                <tr>
-                    <td>GrateGrill</td>
-                    <td>Ron</td>
-                    <td>Raytown</td>
-                    <td>$10</td>
-                    <td>$5</td>
-                    <td>3.5</td>
-                </tr>
-                <tr>
-                    <td>ReallyGrateGrill</td>
-                    <td>Hermione</td>
-                    <td>Overland Park</td>
-                    <td>$7</td>
-                    <td>$5</td>
-                    <td>4.5</td>
-                </tr>
-                <tr>
-                    <td>OKGrill</td>
-                    <td>Neville</td>
-                    <td>Kansas City</td>
-                    <td>$6</td>
-                    <td>$5</td>
-                    <td>2.5</td>
-                </tr>
-                <tr>
-                    <td>Grill 5.0</td>
-                    <td>Luna</td>
-                    <td>Parkville</td>
-                    <td>$8</td>
-                    <td>$5</td>
-                    <td>5</td>
-                </tr>
-            </tbody>
-
-        </table>
+    <div class="half">
+    
+            <div id="left-bar" class="flex-column width-165-px">
+                
+                <hr class="width-100">
+                <div id="new-user-div">
+                    <h3>Add a new user here!</h3>
+                    <label class="display-block">First Name</label>
+                    <input id="new-user-first-name">
+                    <label class="mt-2 display-block">Last Name</label>
+                    <input id="new-user-last-name">
+                    <div class="mt-2">
+                        <label>Is Student?</label>
+                        <input type="checkbox" id="new-user-is-student">
+                    </div>
+                    <button id="new-user-btn" class="display-block width-100">Add New Student</button>
+                </div>
+            </div>
+            <div id="main-body" class="flex-column flex-grow-1 pl-2">
+                <div id="search-section">
+                    <div id="search-bar" class="flex-row mb-1">
+                        <input id="search-input" type="text" class="flex-grow-1" placeholder="Flavor Search">
+                        <button id="search-btn">Search</button>
+                    </div>
+                    <div id="search-filters" class="flex-row">
+                        <div id="vegan-filter-div">
+                            <label>Is Vegan?</label>
+                            <select id="is-vegan-select" class="width-100">
+                                <option value="null"></option>
+                                <option value="true">Yes</option>
+                                <option value="false">No</option>
+                            </select>
+                        </div>
+                        <div id="gluten-free-filter-div" class="ml-1">
+                            <label class="ml-1">Is Gluten Free?</label>
+                            <select id="is-gluten-free-select" class="width-100">
+                                <option value="null"></option>
+                                <option value="true">Yes</option>
+                                <option value="false">No</option>
+                            </select>
+                        </div>
+                        <div id="made-by-filter-div" class="flex-grow-1 ml-1">
+                            <label class="ml-1">Made By?</label>
+                            <select id="made-by-select" class="width-100">
+                                <option value="null"></option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                <div id="pie-list-div" class="flex-column">
+                    <table id="pie-list-table" class="table-border mr-2 mt-2">
+                        <thead>
+                            <td>Name</td>
+                            <td>Flavor</td>
+                            <td>Is Vegan?</td>
+                            <td>Is Gluten Free?</td>
+                            <td>Made By</td>
+                        </thead>
+                        <tbody>
+    
+                        </tbody>
+                    </table>
+                </div>
+          </div>
+        
     </div>
     <div class="align">
         <div class="FAQ">
@@ -208,7 +307,7 @@
         </div>
     </div>
     <h2>Interested in GrillBer? Complete the form below for more info!</h2>
-<div class="flexform">
+    <div class="flexform">
     <form>
         Name:<br><input type="text" name="name">
         <br>
