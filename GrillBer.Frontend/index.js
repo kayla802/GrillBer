@@ -29,7 +29,7 @@ $(function () {
 function refresh() {
     // Get users for the Made By filter
     $.ajax(`${apiHostBase}/users`)
-        .done(populateMadeByUi)
+        .done(populateCityUi)
         .fail(function(xhr, status, err) {
             alert("Ajax Failed. Is the backend running? Err:" + status)
         });
@@ -104,7 +104,18 @@ function populateSearchResults(grills){
     }
 }
 
+//Loads the City select in the search filter list
+function populateCityUi(grills) {
+    let citySelect = $('#city-select');
+    citySelect.children(`:not([value="null"])`).remove();
 
+    for (let grill of grills) {
+        let newCityOption = $('<option>');
+        newCityOption.val(grill.Id);
+        newCityOption.text(`${grill.city}`);
+        citySelect.append(newCityOption);
+    }
+}
 
 
 

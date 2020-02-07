@@ -1,8 +1,11 @@
 <head>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" type="text/css" href="index.css">
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"
+        integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
 
-   
+    <script src="index.js"></script>
+
 </head>
 
 <h1>GrillBer!</h1>
@@ -10,82 +13,85 @@
 <div class="background">
 
     <div class="half">
-    
-            
+
+
+    </div>
+    <div id="main-body" class="flex-column flex-grow-1 pl-2">
+        <div id="search-section">
+
+            <div id="search-filters" class="flex-row">
+                <div id="city-filter-div" class="flex-grow-1 ml-1">
+                    <label class="ml-1">City</label>
+                    <select id="city-select" class="width-100">
+                        <option value="null"></option>
+                    </select>
+                </div>
+                <div id="brand-filter-div">
+                    <label>Cost:</label>
+                    <select id="brand-select" class="width-100">
+                        <option value="null"></option>
+
+                    </select>
+                </div>
+                <div id="model-filter-div" class="ml-1">
+                    <label class="ml-1">Rating(1-5)</label>
+                    <select id="model-select" class="width-100">
+                        <option value="null"></option>
+
+                    </select>
+                </div>
+                <div id="cost-filter-div" class="flex-grow-1 ml-1">
+                    <label class="ml-1">Brand</label>
+                    <select id="cost-select" class="width-100">
+                        <option value="null"></option>
+                    </select>
+                </div>
+                <div id="rating-filter-div" class="flex-grow-1 ml-1">
+                    <label class="ml-1">Model</label>
+                    <select id="rating-select" class="width-100">
+                        <option value="null"></option>
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
+                    </select>
+                </div>
             </div>
-            <div id="main-body" class="flex-column flex-grow-1 pl-2">
-                <div id="search-section">
-                    
-                    <div id="search-filters" class="flex-row">
-                        <div id="city-filter-div" class="flex-grow-1 ml-1">
-                            <label class="ml-1">Model</label>
-                            <select id="city-select" class="width-100">
-                                <option value="null"></option>
-                            </select>
-                        <div id="brand-filter-div">
-                            <label>Cost:</label>
-                            <select id="brand-select" class="width-100">
-                                <option value="null"></option>
-                                
-                            </select>
-                        </div>
-                        <div id="model-filter-div" class="ml-1">
-                            <label class="ml-1">Rating(1-5)</label>
-                            <select id="model-select" class="width-100">
-                                <option value="null"></option>
-                                
-                            </select>
-                        </div>
-                        <div id="cost-filter-div" class="flex-grow-1 ml-1">
-                            <label class="ml-1">Brand</label>
-                            <select id="cost-select" class="width-100">
-                                <option value="null"></option>
-                            </select>
-                        </div>
-                        <div id="rating-filter-div" class="flex-grow-1 ml-1">
-                            <label class="ml-1">Model</label>
-                            <select id="rating-select" class="width-100">
-                                <option value="null"></option>
-                                <option value="1">1</option>
-                                <option value="2">2</option>
-                                <option value="3">3</option>
-                                <option value="4">4</option>
-                                <option value="5">5</option>
-                            </select>
-                        </div>
-                    </div>
-                </div>
-                <div id="grill-list-div" class="flex-column">
-                    <table id="grill-list-table" class="table-border mr-2 mt-2">
-                        <thead>
-                            <td>City</td>
-                            <td>Brand</td>
-                            <td>Model</td>
-                            <td>Cost</td>
-                            <td>Rating</td>
-                        </thead>
-                        <tbody>
-    
-                        </tbody>
-                    </table>
-                </div>
-          </div>
-          <div id="left-bar" class="flex-column width-165-px">
-                
-            
-            <div id="new-user-div" class ="newUser">
-                <h3>Add a new user here!</h3>
-                <hr class="width-100">
-                <label class="display-block">First Name</label>
-                <input id="new-user-first-name">
-                <label class="mt-2 display-block">Last Name</label>
-                <input id="new-user-last-name">
-                <div class="mt-2">
-                    <label>Is Student?</label>
-                    <input type="checkbox" id="new-user-is-student">
-                </div>
-                <button id="new-user-btn" class="display-block width-100">Add New Student</button>
+        </div>
+        <div id="grill-list-div" class="flex-column">
+            <table id="grill-list-table" class="table-border mr-2 mt-2">
+                <thead>
+                    <td>City</td>
+                    <td>Brand</td>
+                    <td>Model</td>
+                    <td>Cost</td>
+                    <td>Rating</td>
+                </thead>
+                <tbody>
+
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <div id="left-bar" class="flex-column width-165-px">
+
+
+        <div id="new-user-div" class="newUser">
+            <h3>Add a new user here!</h3>
+            <hr class="width-100">
+            <label class="display-block">Username:</label>
+            <input id="new-user-name">
+            <label class="display-block">First Name:</label>
+            <input id="new-user-first-name">
+            <label class="mt-2 display-block">Last Name:</label>
+            <input id="new-user-last-name">
+            <div class="mt-2">
+                <label>Is Student?</label>
+                <input type="checkbox" id="new-user-is-student">
             </div>
-        
+            <button id="new-user-btn" class="display-block width-100">Submit</button>
+        </div>
+
     </div>
 </div>
