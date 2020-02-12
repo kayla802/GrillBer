@@ -20,7 +20,7 @@ $(function () {
     });
 
     // Add click event to "Search" button
-    $("#search-btn").click(runGrillSearch);
+    $("#grill-search-btn").click(runGrillSearch);
 
     // Refresh the UI (for the first time)
     refresh();
@@ -29,7 +29,7 @@ $(function () {
 function refresh() {
     // Get cities for the City filter
     $.ajax(`${apiHostBase}/grill`)
-        .done(populateCityUi)
+        .done(populateCityUi, populateCostUi)
         .fail(function (xhr, status, err) {
             alert("Ajax Failed. Is the backend running? Err:" + status)
         });
@@ -40,19 +40,19 @@ function refresh() {
 function runGrillSearch() {
     let searchParams = {};
     if ($("#cost-select :selected").val() !== "null") {
-        searchParams.cost = $("#cost-select : selected").val();
+        searchParams.Cost = $("#cost-select : selected").val();
     }
     if ($("#rating-select :selected").val() !== "null") {
-        searchParams.rate = $("#rating-select : selected").val();
+        searchParams.Rate = $("#rating-select : selected").val();
     }
     if ($("#brand-select :selected").val() !== "null") {
-        searchParams.brand = $("#brand-select :selected").val();
+        searchParams.Brand = $("#brand-select :selected").val();
     }
     if ($("#model-select :selected").val() !== "null") {
-        searchParams.brand = $("#model-select :selected").val();
+        searchParams.Model = $("#model-select :selected").val();
     }
     if ($("#city-select :selected").val() !== "null") {
-        searchParams.brand = $("#city-select :selected").val();
+        searchParams.City = $("#city-select :selected").val();
     }
     let searchParamsString = "";
     for (let searchParam in searchParams) {
@@ -79,11 +79,11 @@ function addGrillToSeachResults(grill) {
     grillRow.click(function () {
         window.location.href = "./grill_page/grill_page.html?grillId=" + grill.Id;
     })
-    grillRow.append($(`<td>${grill.city}</td>
-    <td>${grill.brand}</td>
-    <td>${grill.model}</td>
-    <td>${grill.cost}</td>
-    <td>${grill.rating}</td>`));
+    grillRow.append($(`<td>${grill.City}</td>
+    <td>${grill.Brand}</td>
+    <td>${grill.Model}</td>
+    <td>${grill.Cost}</td>
+    <td>${grill.Rating}</td>`));
 
     grillRow.addClass("mt-1");
     grillTableBody.append(grillRow);
@@ -125,7 +125,7 @@ function populateCostUi(grills) {
     for (let grill of grills) {
         let newCostOption = $('<option>');
         newCostOption.val(gill.Id);
-        newCostOption.text(`${grill.cost}`);
+        newCostOption.text(`${grill.Cost}`);
         costSelect.append(newCostOption);
     }
 }
