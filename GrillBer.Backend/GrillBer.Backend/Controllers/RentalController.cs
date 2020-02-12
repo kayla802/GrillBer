@@ -20,6 +20,13 @@ namespace GrillBer.Backend.Controllers
             return rentalDao.NewRental(inRental);
         }
 
-    }
+		[HttpGet]
+		public IEnumerable<Rental> GetAllRentals()
+		{
+			RentalDao rentalDao = new RentalDao();
+			return rentalDao.GetAllRentals();
+		}
+
+	}
 }
 
