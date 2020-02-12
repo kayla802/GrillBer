@@ -27,7 +27,7 @@ $(function () {
 });
 
 function refresh() {
-    // Get users for the Made By filter
+    // Get cities for the City filter
     $.ajax(`${apiHostBase}/grill`)
         .done(populateCityUi)
         .fail(function (xhr, status, err) {
@@ -117,7 +117,18 @@ function populateCityUi(grills) {
     }
 }
 
+//Loads the cost select in the search filter list
+function populateCostUi(grills) {
+    let costSelect = $('#cost-select');
+    costSelect.children(`:not([value="null"])`).remove();
 
+    for (let grill of grills) {
+        let newCostOption = $('<option>');
+        newCostOption.val(gill.Id);
+        newCostOption.text(`${grill.cost}`);
+        costSelect.append(newCostOption);
+    }
+}
 
 
 
