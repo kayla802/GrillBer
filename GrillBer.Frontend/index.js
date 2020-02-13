@@ -27,7 +27,7 @@ $(function () {
 });
 
 function refresh() {
-    // Get cities for the City filter
+    // Get items for the filters
     $.ajax(`${apiHostBase}/grill`)
         .done(populateCityUi, populateCostUi)
         .fail(function (xhr, status, err) {
@@ -124,7 +124,7 @@ function populateCostUi(grills) {
 
     for (let grill of grills) {
         let newCostOption = $('<option>');
-        newCostOption.val(gill.Id);
+        newCostOption.val(grill.Id);
         newCostOption.text(`${grill.Cost}`);
         costSelect.append(newCostOption);
     }
