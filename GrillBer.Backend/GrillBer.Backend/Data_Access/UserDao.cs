@@ -40,5 +40,14 @@ namespace GrillBer.Backend.Data_Access
             }
 
         }
+
+        public IEnumerable<User> GetAllUsers()
+        {
+            using (var db = new LiteDatabase(GrillBerDBLocation))
+            {
+                var userCol = db.GetCollection<User>("Users");
+                return userCol.FindAll().ToArray();
+            }
+        }
     }
 }

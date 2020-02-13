@@ -40,10 +40,10 @@ function refresh() {
 function runGrillSearch() {
     let searchParams = {};
     if ($("#cost-select :selected").val() !== "null") {
-        searchParams.Cost = $("#cost-select : selected").val();
+        searchParams.Cost = $("#cost-select :selected").val();
     }
     if ($("#rating-select :selected").val() !== "null") {
-        searchParams.Rate = $("#rating-select : selected").val();
+        searchParams.Rate = $("#rating-select :selected").val();
     }
     if ($("#brand-select :selected").val() !== "null") {
         searchParams.Brand = $("#brand-select :selected").val();
