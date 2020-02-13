@@ -283,6 +283,13 @@ form {
 .topnav .search-container button:hover {
     background: #ccc;
 }
+.newUser {
+    margin: 0;
+    width: 200px;
+    background: black;
+    padding: 20px;
+    color: white;
+}
 
 /* @media screen and (max-width: 600px) {
     .topnav .search-container {
@@ -299,10 +306,4 @@ form {
     .topnav input[type=text] {
         border: 1px solid #ccc;
     }
-    .newUser {
-        margin: 0 auto;
-        width: 200px;
-        background: black;
-        padding: 20px;
-        color: white;
-    } */
+    
