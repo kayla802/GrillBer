@@ -34,17 +34,11 @@ function refresh() {
             alert("Ajax Failed. Is the backend running? Err:" + status)
         });
 
-    // runGrillSearch();
+    runGrillSearch();
 }
 
 function runGrillSearch() {
     let searchParams = {};
-    if ($("#cost-select :selected").val() !== "null") {
-        searchParams.Cost = $("#cost-select :selected").val();
-    }
-    if ($("#rating-select :selected").val() !== "null") {
-        searchParams.Rate = $("#rating-select :selected").val();
-    }
     if ($("#brand-select :selected").val() !== "null") {
         searchParams.Brand = $("#brand-select :selected").val();
     }
@@ -54,6 +48,14 @@ function runGrillSearch() {
     if ($("#city-select :selected").val() !== "null") {
         searchParams.City = $("#city-select :selected").val();
     }
+    if ($("#cost-select :selected").val() !== "null") {
+        searchParams.Cost = $("#cost-select :selected").val();
+    }
+    if ($("#rating-select :selected").val() !== "null") {
+        searchParams.Rate = $("#rating-select :selected").val();
+    }
+    
+    
     let searchParamsString = "";
     for (let searchParam in searchParams) {
         if (searchParamsString !== "") {
