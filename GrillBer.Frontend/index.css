@@ -283,6 +283,26 @@ form {
 .topnav .search-container button:hover {
     background: #ccc;
 }
+.rightbar{
+    float: right;
+    
+}
+#new-user-div {
+    
+    
+  background-color: #cf6e6e;
+  float: right;
+ 
+  
+}
+#new-grill-div {
+    float: right;
+    clear: right;
+    margin-top: 10px;
+    
+  background-color: #cf6e6e;
+  
+}
 
 /* @media screen and (max-width: 600px) {
     .topnav .search-container {
@@ -299,10 +319,4 @@ form {
     .topnav input[type=text] {
         border: 1px solid #ccc;
     }
-    .newUser {
-        margin: 0 auto;
-        width: 200px;
-        background: black;
-        padding: 20px;
-        color: white;
-    } */
+    
