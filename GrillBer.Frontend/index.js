@@ -27,24 +27,18 @@ $(function () {
 });
 
 function refresh() {
-    // Get cities for the City filter
+    // Get items for the filters
     $.ajax(`${apiHostBase}/grill`)
-        .done(populateCityUi, populateCostUi)
+        .done(populateCityUi, populateCostUi,populateBrandUi, populateModelUi)
         .fail(function (xhr, status, err) {
             alert("Ajax Failed. Is the backend running? Err:" + status)
         });
 
-    // runGrillSearch();
+    runGrillSearch();
 }
 
 function runGrillSearch() {
     let searchParams = {};
-    if ($("#cost-select :selected").val() !== "null") {
-        searchParams.Cost = $("#cost-select : selected").val();
-    }
-    if ($("#rating-select :selected").val() !== "null") {
-        searchParams.Rate = $("#rating-select : selected").val();
-    }
     if ($("#brand-select :selected").val() !== "null") {
         searchParams.Brand = $("#brand-select :selected").val();
     }
@@ -54,6 +48,14 @@ function runGrillSearch() {
     if ($("#city-select :selected").val() !== "null") {
         searchParams.City = $("#city-select :selected").val();
     }
+    if ($("#cost-select :selected").val() !== "null") {
+        searchParams.Cost = $("#cost-select :selected").val();
+    }
+    if ($("#rating-select :selected").val() !== "null") {
+        searchParams.Rate = $("#rating-select :selected").val();
+    }
+    
+    
     let searchParamsString = "";
     for (let searchParam in searchParams) {
         if (searchParamsString !== "") {
@@ -124,9 +126,37 @@ function populateCostUi(grills) {
 
     for (let grill of grills) {
         let newCostOption = $('<option>');
-        newCostOption.val(gill.Id);
+        newCostOption.val(grill.Id);
         newCostOption.text(`${grill.Cost}`);
         costSelect.append(newCostOption);
+    }
+}
+
+
+//Loads the Brand in the search filter list
+function populateBrandUi(grills) {
+    let brandSelect = $('#brand-select');
+    brandSelect.children(`:not([value="null"])`).remove();
+
+    for (let grill of grills) {
+        let newBrandOption = $('<option>');
+        newBrandOption.val(grill.Id);
+        newBrandOption.text(`${grill.Brand}`);
+        brandSelect.append(newBrandOption);
+    }
+}
+
+
+//Loads the Model in the search filter list
+function populateModelUi(grills) {
+    let modelSelect = $('#model-select');
+    modelSelect.children(`:not([value="null"])`).remove();
+
+    for (let grill of grills) {
+        let newModelOption = $('<option>');
+        newModelOption.val(grill.Id);
+        newModelOption.text(`${grill.Model}`);
+        modelSelect.append(newModelOption);
     }
 }
 
