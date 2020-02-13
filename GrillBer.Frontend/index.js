@@ -48,11 +48,11 @@ function runGrillSearch() {
     if ($("#city-select :selected").text() !== "null") {
         searchParams.City = $("#city-select :selected").text();
     }
-    if ($("#cost-select :selected").val() !== "null") {
-        searchParams.Cost = $("#cost-select :selected").val();
+    if ($("#cost-select :selected").text() !== "null") {
+        searchParams.Cost = $("#cost-select :selected").text();
     }
     if ($("#rating-select :selected").val() !== "null") {
-        searchParams.Rate = $("#rating-select :selected").val();
+        searchParams.Rating = $("#rating-select :selected").val();
     }
     
     
