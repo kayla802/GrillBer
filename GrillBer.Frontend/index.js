@@ -104,6 +104,9 @@ function populateSearchResults(grills) {
     for (let grill of grills) {
         addGrillToSeachResults(grill);
     }
+    if ($.trim(grills) == ''){let grillTableBody = $("#grill-list-table tbody");
+    grillTableBody.append($(`<h4>No Results</h4>`));
+    }
 }
 
 //Loads the City select in the search filter list
