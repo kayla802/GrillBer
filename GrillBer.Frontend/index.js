@@ -39,14 +39,14 @@ function refresh() {
 
 function runGrillSearch() {
     let searchParams = {};
-    if ($("#brand-select :selected").val() !== "null") {
-        searchParams.Brand = $("#brand-select :selected").val();
+    if ($("#brand-select :selected").text() !== "null") {
+        searchParams.Brand = $("#brand-select :selected").text();
     }
-    if ($("#model-select :selected").val() !== "null") {
-        searchParams.Model = $("#model-select :selected").val();
+    if ($("#model-select :selected").text() !== "null") {
+        searchParams.Model = $("#model-select :selected").text();
     }
-    if ($("#city-select :selected").val() !== "null") {
-        searchParams.City = $("#city-select :selected").val();
+    if ($("#city-select :selected").text() !== "null") {
+        searchParams.City = $("#city-select :selected").text();
     }
     if ($("#cost-select :selected").val() !== "null") {
         searchParams.Cost = $("#cost-select :selected").val();
