@@ -27,7 +27,7 @@ $(function () {
 });
 
 function refresh() {
-    // Get cities for the City filter
+    // Get items for the filters
     $.ajax(`${apiHostBase}/grill`)
         .done(populateCityUi, populateCostUi,populateBrandUi, populateModelUi)
         .fail(function (xhr, status, err) {
