@@ -9,35 +9,31 @@ using System.Web;
 
 namespace GrillBer.Backend.Data_Access
 {
-    public class UserDao: DaoBase
+    public class UserDao : DaoBase
 
     {
         public User NewUser(User user)
         {
-            using (var db = new LiteDatabase(GrillBerDBLocation))
+            var userCol = db.GetCollection<User>("Users");
+            var newUser = new User()
             {
-                var userCol = db.GetCollection<User>("Users");
-                var newUser = new User()
-                {
-                    Id = Guid.NewGuid(),
-                    Username = user.Username,
-                    FirstName = user.FirstName,
-                    LastName = user.LastName
-                };
+                Id = Guid.NewGuid(),
+                Username = user.Username,
+                FirstName = user.FirstName,
+                LastName = user.LastName
+            };
 
-                userCol.Insert(newUser);
-                return newUser;
-            }
+            userCol.Insert(newUser);
+            return newUser;
+
 
         }
 
         public User GetSingleUserById(Guid user)
         {
-            using (var db = new LiteDatabase(GrillBerDBLocation))
-            {
-                var userCol = db.GetCollection<User>("Users");
-                return userCol.FindById(user);
-            }
+            var userCol = db.GetCollection<User>("Users");
+            return userCol.FindById(user);
+
 
         }
 
@@ -52,11 +48,9 @@ namespace GrillBer.Backend.Data_Access
 
 		public IEnumerable<User> GetAllUsers()
         {
-            using (var db = new LiteDatabase(GrillBerDBLocation))
-            {
-                var userCol = db.GetCollection<User>("Users");
-                return userCol.FindAll().ToArray();
-            }
+            var userCol = db.GetCollection<User>("Users");
+            return userCol.FindAll().ToArray();
+
         }
     }
 }
