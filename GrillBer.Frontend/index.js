@@ -14,10 +14,10 @@ $(function () {
             method: "POST",
             data: user
         }).done(refresh)
-        .fail(function(xhr, status, err) {
-            alert("Ajax Failed. Is the backend running? Err:" + status)
-        });
-        
+            .fail(function (xhr, status, err) {
+                alert("Ajax Failed. Is the backend running? Err:" + status)
+            });
+
     });
     // $(function(){
     //     $("#btn").click(function(){
@@ -25,28 +25,34 @@ $(function () {
     //     $("#form")[0].reset();
     //     });});
 
-    // $(function () {
-    //     // Add click event to "Add New Grill"
-    //     $("#new-grill-btn").click(function () {
-    //         /**@type {Grill} grill */
-    //         let grill = {
-    //             OwnerId: $("#new-grill-owner").val().toString(),
-    //             Brand: $("#new-grill-brand").val().toString(),
-    //             Model: $("#new-grill-model").val().toString(),
-    //             City: $("new-grill-city").val().toString(),
-    //             Cost: $("new-grill-cost").val().toString(),
-    //             Rating: $("new-grill-rating").val().toString()
-    //         }
-    //         $.ajax({
-    //             url: `${apiHostBase}/grill`,
-    //             method: "POST",
-    //             data: grill
-    //         }).done(refresh)
-    //         .fail(function(xhr, status, err) {
-    //             alert("Ajax Failed. Is the backend running? Err:" + status)
-    //         });
-            
-    //     });
+
+    // Add click event to "Add New Grill"
+    $("#new-grill-btn").click(function () {
+        /**@type {Grill} grill */
+        $.ajax(`${apiHostBase}/user/${$("#new-grill-owner").val().toString()}`)
+            .done(function (user) {
+                let grill = {
+                    OwnerId: user.Id,
+                    Brand: $("#new-grill-brand").val().toString(),
+                    Model: $("#new-grill-model").val().toString(),
+                    City: $("#new-grill-city").val().toString(),
+                    Cost: $("#new-grill-cost").val().toString(),
+                    Rating: $("#new-grill-rating").val().toString()
+                }
+                $.ajax({
+                    url: `${apiHostBase}/grill`,
+                    method: "POST",
+                    data: grill
+                }).done(refresh)
+                    .fail(function (xhr, status, err) {
+                        alert("Ajax Failed. Is the backend running? Err:" + status)
+                    });
+
+            })
+
+
+
+    });
 
     // Add click event to "Search" button
     $("#grill-search-btn").click(runGrillSearch);
@@ -58,7 +64,7 @@ $(function () {
 function refresh() {
     // Get items for the filters
     $.ajax(`${apiHostBase}/grill`)
-        .done(populateCityUi, populateCostUi,populateBrandUi, populateModelUi)
+        .done(populateCityUi, populateCostUi, populateBrandUi, populateModelUi)
         .fail(function (xhr, status, err) {
             alert("Ajax Failed. Is the backend running? Err:" + status)
         });
@@ -83,8 +89,8 @@ function runGrillSearch() {
     if ($("#rating-select :selected").val() !== "null") {
         searchParams.Rating = $("#rating-select :selected").val();
     }
-    
-    
+
+
     let searchParamsString = "";
     for (let searchParam in searchParams) {
         if (searchParamsString !== "") {
