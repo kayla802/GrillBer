@@ -11,7 +11,7 @@ $(function () {
     });;
 });
 
-function renderGrillPage(grill)
+function renderGrillPage(grill) {
 
     //collect grill name
     $("#model-name-header").text(grill.Brand + " " + grill.Model);
@@ -29,4 +29,4 @@ function renderGrillPage(grill)
         });;
     }
 
-
+}

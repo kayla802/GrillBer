@@ -9,66 +9,58 @@ using System.Web;
 
 namespace GrillBer.Backend.Data_Access
 {
-	public class GrillDao : DaoBase
-	{
-		public Grill GetSingleGrillById(Guid grillID)
-		{
-			using (var db = new LiteDatabase(GrillBerDBLocation))
-			{
-				var grillcol = db.GetCollection<Grill>("Grills");
-				return grillcol.FindById(grillID);
-			}
-		}
+    public class GrillDao : DaoBase
+    {
+        public Grill GetSingleGrillById(Guid grillID)
+        {
+            var grillcol = db.GetCollection<Grill>("Grills");
+            return grillcol.FindById(grillID);
 
-		public Grill[] GetGrills(Expression<Func<Grill, bool>> predicate = null)
-		{
-			using (var db = new LiteDatabase(GrillBerDBLocation))
-			{
-				var grillCol = db.GetCollection<Grill>("Grills");
-				return predicate == null
-					? grillCol.FindAll().ToArray()
-					: grillCol.Find(predicate).ToArray();
-			}
+        }
 
-		}
+        public Grill[] GetGrills(Expression<Func<Grill, bool>> predicate = null)
+        {
+            var grillCol = db.GetCollection<Grill>("Grills");
+            return predicate == null
+                ? grillCol.FindAll().ToArray()
+                : grillCol.Find(predicate).ToArray();
 
 
-		public Grill CreateNewGrill(Grill inGrill)
-		{
-			var userDao = new UserDao();
-			var foundUser = userDao.GetSingleUserById(inGrill.OwnerId);
-			if (foundUser == null)
-			{
-				throw new KeyNotFoundException("User doesn't exist: " + inGrill.OwnerId.ToString());
-			}
-			using (var db = new LiteDatabase(GrillBerDBLocation))
-			{
-				var grillCol = db.GetCollection<Grill>("Grills");
-				var newGrill = new Grill()
-				{
-					Id = Guid.NewGuid(),
-					Brand = inGrill.Brand,
-					Model = inGrill.Model,
-					City = inGrill.City,
-					Cost = inGrill.Cost,
-					Rating = inGrill.Rating,
-					OwnerId = inGrill.OwnerId,
-					//RenterId = inGrill.RenterId
-				};
+        }
 
-				grillCol.Insert(newGrill);
-				return newGrill;
-			}
 
-		}
+        public Grill CreateNewGrill(Grill inGrill)
+        {
+            var userDao = new UserDao();
+            var foundUser = userDao.GetSingleUserById(inGrill.OwnerId);
+            if (foundUser == null)
+            {
+                throw new KeyNotFoundException("User doesn't exist: " + inGrill.OwnerId.ToString());
+            }
+            var grillCol = db.GetCollection<Grill>("Grills");
+            var newGrill = new Grill()
+            {
+                Id = Guid.NewGuid(),
+                Brand = inGrill.Brand,
+                Model = inGrill.Model,
+                City = inGrill.City,
+                Cost = inGrill.Cost,
+                Rating = inGrill.Rating,
+                OwnerId = inGrill.OwnerId,
+                //RenterId = inGrill.RenterId
+            };
 
-		public void DeleteGrill(Guid grillId)
-		{
-			using (var db = new LiteDatabase(GrillBerDBLocation))
-			{
-				var grillCol = db.GetCollection<Grill>("Grills");
-				grillCol.Delete(grillId);
-			}
-		}
-	}
+            grillCol.Insert(newGrill);
+            return newGrill;
+
+
+        }
+
+        public void DeleteGrill(Guid grillId)
+        {
+            var grillCol = db.GetCollection<Grill>("Grills");
+            grillCol.Delete(grillId);
+
+        }
+    }
 }
