@@ -33,19 +33,25 @@ function renderGrillPage(grill) {
     //Render the properties
     //Delivery Fee: ${grill.DeliveryFee} --- to be added below 
     $("#grill-prop-div").append($(`<p>Available in ${grill.City} | 
-        Cost: $${grill.Cost} per hour | Rating: ${grill.Rating} Delivery Fee: ${grill.DeliveryFee} </p>`))
+        Cost: $${grill.Cost} per hour | Rating: ${grill.Rating} | Delivery Fee: ${grill.DeliveryFee} </p>`))
 
     populateUsersSelect();
 }
 
+
+
 function populateUsersSelect(users) {
-    let userSelect = $('#user-select');
-    userSelect.children(`:not([value="null"])`).remove();
+    $.ajax(`${apiHostBase}/User`)
+    .done(function (users) {
+        $("#user-select").children().remove();
+        for (let user of users) {
+            $("#user-select").append(`<option value=${user.Id}>${user.FirstName} ${user.LastName}</option>`);
+        }
+    })
+    .fail(function (xhr, status, err) {
+        alert("Ajax Failed. Is the backend running? Err:" + status)
+    });
     
-    for (let user of users) {
-        let newUserOption = $('<option>');
-        newUserOption.val(user.Id);
-        newUserOption.text(`${user.Username}`);
-        userSelect.append(newUserOption);
-    }
+    
+    
 }
