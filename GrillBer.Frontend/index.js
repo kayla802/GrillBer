@@ -124,6 +124,8 @@ function addGrillToSeachResults(grill) {
 function clearSearchResultsAndSayLoading() {
     let grillTable = $("#grill-list-table");
     grillTable.find("tbody").children().remove();
+    let grillMainBody = $("#main-body");
+    grillMainBody.find("h4").remove();
     $("grill-list-div").append($(`<div id="loadingDiv">Loading...</div>`));
 }
 
@@ -134,7 +136,7 @@ function populateSearchResults(grills) {
         addGrillToSeachResults(grill);
     }
     if ($.trim(grills) == ''){let grillMainBody = $("#main-body");
-    grillMainBody.append($(`<h4>No Results</h4>`));
+    grillMainBody.append($("<h4>No Results</h4>"));
     }
 }
 
