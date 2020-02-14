@@ -41,7 +41,16 @@ namespace GrillBer.Backend.Data_Access
 
         }
 
-        public IEnumerable<User> GetAllUsers()
+		public User GetUserByUsername(string username)
+		{
+			using (var db = new LiteDatabase(GrillBerDBLocation))
+			{
+				var userCol = db.GetCollection<User>("Users");
+				return userCol.Find(u => u.Username == username).First();
+			}
+		}
+
+		public IEnumerable<User> GetAllUsers()
         {
             using (var db = new LiteDatabase(GrillBerDBLocation))
             {
