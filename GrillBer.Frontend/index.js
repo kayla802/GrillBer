@@ -5,18 +5,19 @@ $(function () {
     $("#new-user-btn").click(function () {
         /**@type {User} user */
         let user = {
+            Username: $("#new-user-username").val().toString(),
             FirstName: $("#new-user-first-name").val().toString(),
-            LastName: $("#new-user-last-name").val().toString(),
+            LastName: $("#new-user-last-name").val().toString()
         }
 
-        // $.ajax({
-        //     url: `${apiHostBase}/user`,
-        //     method: "POST",
-        //     data: user
-        // }).done(refresh)
-        // .fail(function(xhr, status, err) {
-        //     alert("Ajax Failed. Is the backend running? Err:" + status)
-        // });;
+        $.ajax({
+            url: `${apiHostBase}/user`,
+            method: "POST",
+            data: user
+        }).done(refresh)
+        .fail(function(xhr, status, err) {
+            alert("Ajax Failed. Is the backend running? Err:" + status)
+        });;
     });
 
     // Add click event to "Search" button
