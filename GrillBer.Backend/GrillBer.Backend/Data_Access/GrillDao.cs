@@ -50,10 +50,8 @@ namespace GrillBer.Backend.Data_Access
                 //RenterId = inGrill.RenterId
             };
 
-            grillCol.Insert(newGrill);
+			grillCol.Insert(newGrill);
             return newGrill;
-
-
         }
 
         public void DeleteGrill(Guid grillId)

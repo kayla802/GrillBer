@@ -37,7 +37,13 @@ namespace GrillBer.Backend.Data_Access
 
         }
 
-        public IEnumerable<User> GetAllUsers()
+		public User GetUserByUsername(string username)
+		{
+				var userCol = db.GetCollection<User>("Users");
+				return userCol.Find(u => u.Username == username).First();
+		}
+
+		public IEnumerable<User> GetAllUsers()
         {
             var userCol = db.GetCollection<User>("Users");
             return userCol.FindAll().ToArray();

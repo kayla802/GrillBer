@@ -20,7 +20,15 @@ namespace GrillBer.Backend.Controllers
             return userDao.GetSingleUserById(userId);
         }
 
-        [HttpGet]
+		[HttpGet]
+		[Route("{username}")]
+		public User GetUserByUsername(string username)
+		{
+			var userDao = new UserDao();
+			return userDao.GetUserByUsername(username);
+		}
+
+		[HttpGet]
         public IEnumerable<User> GetAllUsers()
         {
             var userDao = new UserDao();
