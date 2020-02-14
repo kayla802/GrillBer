@@ -9,7 +9,6 @@ $(function () {
             FirstName: $("#new-user-first-name").val().toString(),
             LastName: $("#new-user-last-name").val().toString()
         }
-
         $.ajax({
             url: `${apiHostBase}/user`,
             method: "POST",
@@ -17,8 +16,37 @@ $(function () {
         }).done(refresh)
         .fail(function(xhr, status, err) {
             alert("Ajax Failed. Is the backend running? Err:" + status)
-        });;
+        });
+        
     });
+    // $(function(){
+    //     $("#btn").click(function(){
+    //     /* Single line Reset function executes on click of Reset Button */
+    //     $("#form")[0].reset();
+    //     });});
+
+    // $(function () {
+    //     // Add click event to "Add New Grill"
+    //     $("#new-grill-btn").click(function () {
+    //         /**@type {Grill} grill */
+    //         let grill = {
+    //             OwnerId: $("#new-grill-owner").val().toString(),
+    //             Brand: $("#new-grill-brand").val().toString(),
+    //             Model: $("#new-grill-model").val().toString(),
+    //             City: $("new-grill-city").val().toString(),
+    //             Cost: $("new-grill-cost").val().toString(),
+    //             Rating: $("new-grill-rating").val().toString()
+    //         }
+    //         $.ajax({
+    //             url: `${apiHostBase}/grill`,
+    //             method: "POST",
+    //             data: grill
+    //         }).done(refresh)
+    //         .fail(function(xhr, status, err) {
+    //             alert("Ajax Failed. Is the backend running? Err:" + status)
+    //         });
+            
+    //     });
 
     // Add click event to "Search" button
     $("#grill-search-btn").click(runGrillSearch);
