@@ -19,11 +19,12 @@ $(function () {
             });
 
     });
-    // $(function(){
-    //     $("#btn").click(function(){
+
+    // $("#reset-btn").click(function () {
     //     /* Single line Reset function executes on click of Reset Button */
-    //     $("#form")[0].reset();
-    //     });});
+    //     $("#new-user-username").reset();
+    // });
+
 
 
     // Add click event to "Add New Grill"
@@ -59,6 +60,7 @@ $(function () {
 
     // Refresh the UI (for the first time)
     refresh();
+
 });
 
 function refresh() {
@@ -141,8 +143,9 @@ function populateSearchResults(grills) {
     for (let grill of grills) {
         addGrillToSeachResults(grill);
     }
-    if ($.trim(grills) == ''){let grillMainBody = $("#main-body");
-    grillMainBody.append($("<h4>No Results</h4>"));
+    if ($.trim(grills) == '') {
+        let grillMainBody = $("#main-body");
+        grillMainBody.append($("<h4>No Results</h4>"));
     }
 }
 
