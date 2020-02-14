@@ -145,8 +145,8 @@ body {
 }
 
 h1 {
-    color: #FAEBD7;
-    font-weight: bold;
+    color: #000000;
+    font-weight: bold;;
     font-size: 50px;
     margin: 0;
 }
@@ -181,10 +181,9 @@ td:nth-last-child(-n+3) {
 }
 
 h2 {
-    color: #B315A3;
-    text-decoration: underline;
-    font-size: 22px;
-    text-align: center;
+    color: #000000;
+    font-size: 30px;
+    font-weight: bold;
 }
 
 h3 {
