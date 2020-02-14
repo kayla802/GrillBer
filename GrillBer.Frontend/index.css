@@ -194,9 +194,9 @@ h3 {
 
 h4 {
     color: #000000;
-    font-size: 20px;
+    font-size: 30px;
     text-align: left;
-    border: none
+    margin: 3px;
 }
 
 form {
