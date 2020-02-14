@@ -13,16 +13,22 @@ $(function () {
             url: `${apiHostBase}/user`,
             method: "POST",
             data: user
-        }).done(refresh)
+        }).done(function(){
+            refresh();
+            $("#new-user-username").val(""),
+            $("#new-user-first-name").val(""),
+            $("#new-user-last-name").val("")
+        })
             .fail(function (xhr, status, err) {
                 alert("Ajax Failed. Is the backend running? Err:" + status)
             });
 
     });
 
+
     // $("#reset-btn").click(function () {
     //     /* Single line Reset function executes on click of Reset Button */
-    //     $("#new-user-username").reset();
+    //     $("#new-user-username").toString("");
     // });
 
 
@@ -38,13 +44,21 @@ $(function () {
                     Model: $("#new-grill-model").val().toString(),
                     City: $("#new-grill-city").val().toString(),
                     Cost: $("#new-grill-cost").val().toString(),
-                    Rating: $("#new-grill-rating").val().toString()
+                    //Rating: $("#new-grill-rating").val().toString()
                 }
                 $.ajax({
                     url: `${apiHostBase}/grill`,
                     method: "POST",
                     data: grill
-                }).done(refresh)
+                }).done(function(){
+                    refresh();
+                    $("#new-grill-owner").val(""),
+                    $("#new-grill-brand").val(""),
+                    $("#new-grill-model").val(""),
+                    $("#new-grill-city").val(""),
+                    $("#new-grill-cost").val("")
+
+                })        
                     .fail(function (xhr, status, err) {
                         alert("Ajax Failed. Is the backend running? Err:" + status)
                     });
