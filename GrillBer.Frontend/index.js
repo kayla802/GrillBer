@@ -79,7 +79,7 @@ function addGrillToSeachResults(grill) {
     let grillTableBody = $("#grill-list-table tbody");
     let grillRow = $("<tr>");
     grillRow.click(function () {
-        window.location.href = "./grill_page/grill_page.html?grillId=" + grill.Id;
+        window.location.href = "./grillpage/grillpage.html?grillId=" + grill.Id;
     })
     grillRow.append($(`<td>${grill.City}</td>
     <td>${grill.Brand}</td>
