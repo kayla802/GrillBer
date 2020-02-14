@@ -13,32 +13,28 @@ namespace GrillBer.Backend.Data_Access
     {
         public Rental NewRental(Rental inRental)
         {
-            using (var db = new LiteDatabase(GrillBerDBLocation))
+            var RentalCol = db.GetCollection<Rental>("Rentals");
+            Rental newRental = new Rental()
             {
-                var RentalCol = db.GetCollection<Rental>("Rentals");
-                Rental newRental = new Rental()
-                {
-                    Id = Guid.NewGuid(),
-                    User = inRental.User,
-                    Grill = inRental.Grill,
-                    Start = DateTime.Now,
-                    End = inRental.End != default(DateTime) ? inRental.End : DateTime.Now.AddHours(2)
+                Id = Guid.NewGuid(),
+                User = inRental.User,
+                Grill = inRental.Grill,
+                Start = DateTime.Now,
+                End = inRental.End != default(DateTime) ? inRental.End : DateTime.Now.AddHours(2)
 
-				};
+            };
 
-                RentalCol.Insert(newRental);
-                return newRental;
-            }
+            RentalCol.Insert(newRental);
+            return newRental;
+
         }
 
-		public IEnumerable<Rental> GetAllRentals()
-		{
-			using (var db = new LiteDatabase(GrillBerDBLocation))
-			{
-				var RentalCol = db.GetCollection<Rental>("Rentals");
-				return RentalCol.FindAll().ToArray();
-			}
-		}
+        public IEnumerable<Rental> GetAllRentals()
+        {
+            var RentalCol = db.GetCollection<Rental>("Rentals");
+            return RentalCol.FindAll().ToArray();
+
+        }
 
         //internal static Rental newRental(Rental inRental)
         //{
