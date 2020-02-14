@@ -19,21 +19,21 @@ function renderGrillPage(grill) {
     //Render the owner
 
     let ownerString = "Owned by";
-    for (let userId of grill.OwnerId) {
+    let userId = grill.OwnerId
         $.ajax(`${apiHostBase}/user/${userId}`)
         .done(function (user) {
-            ownerString += " " + user.FirstName + " " + user.Lastname;
+            ownerString += " " + user.FirstName + " " + user.LastName;
             $("#grill-owner-header").text(ownerString);
         })
         .fail(function (xhr, status, err) {
             alert("Ajax Failed. Is the backend running. Err:" + status)
         });;
-    }
+    
 
     //Render the properties
     //Delivery Fee: ${grill.DeliveryFee} --- to be added below 
-    $("#grill-prop-div").append($(`<p>Available in: ${grill.City} | 
-        Cost: $${grill.Cost} per hour | Rating: ${grill.Rating} </p>`))
+    $("#grill-prop-div").append($(`<p>Available in ${grill.City} | 
+        Cost: $${grill.Cost} per hour | Rating: ${grill.Rating} Delivery Fee: ${grill.DeliveryFee} </p>`))
 
     populateUsersSelect();
 }
