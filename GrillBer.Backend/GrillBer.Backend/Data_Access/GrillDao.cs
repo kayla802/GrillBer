@@ -48,7 +48,6 @@ namespace GrillBer.Backend.Data_Access
                 Rating = inGrill.Rating,
                 OwnerId = inGrill.OwnerId,
                 DeliveryFee = inGrill.DeliveryFee,
-                //RenterId = inGrill.RenterId
             };
 
 			grillCol.Insert(newGrill);

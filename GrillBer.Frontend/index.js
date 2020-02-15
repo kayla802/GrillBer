@@ -10,6 +10,12 @@ $(function () {
             LastName: $("#new-user-last-name").val().toString()
         }
         $.ajax({
+            url: `${apiHostBase}/user/${user.Username}`,
+            method: "GET"
+        }).done(function(){
+            alert("Please select another Username")
+        }).fail(function(){
+        $.ajax({
             url: `${apiHostBase}/user`,
             method: "POST",
             data: user
@@ -22,15 +28,9 @@ $(function () {
             .fail(function (xhr, status, err) {
                 alert("Ajax Failed. Is the backend running? Err:" + status)
             });
-
+            
+        })
     });
-
-
-    // $("#reset-btn").click(function () {
-    //     /* Single line Reset function executes on click of Reset Button */
-    //     $("#new-user-username").toString("");
-    // });
-
 
 
     // Add click event to "Add New Grill"
@@ -44,7 +44,7 @@ $(function () {
                     Model: $("#new-grill-model").val().toString(),
                     City: $("#new-grill-city").val().toString(),
                     Cost: $("#new-grill-cost").val().toString(),
-                    //Rating: $("#new-grill-rating").val().toString()
+                    DeliveryFee: $("#new-grill-delivery").val().toString()
                 }
                 $.ajax({
                     url: `${apiHostBase}/grill`,
@@ -56,7 +56,8 @@ $(function () {
                     $("#new-grill-brand").val(""),
                     $("#new-grill-model").val(""),
                     $("#new-grill-city").val(""),
-                    $("#new-grill-cost").val("")
+                    $("#new-grill-cost").val(""),
+                    $("#new-grill-delivery").val("")
 
                 })        
                     .fail(function (xhr, status, err) {
