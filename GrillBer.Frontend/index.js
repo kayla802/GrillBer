@@ -1,7 +1,7 @@
 let apiHostBase = `https://localhost:44329/api`;
 
 $(function () {
-    // Add click event to "Add New User"
+    // Add click event to "Add New User" and check username for existing
     $("#new-user-btn").click(function () {
         /**@type {User} user */
         let user = {

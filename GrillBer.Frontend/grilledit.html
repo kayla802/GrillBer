@@ -1,0 +1,59 @@
+<html>
+
+<head>
+    <!-- Get the css from the main page -->
+    <link rel="stylesheet" type="text/css" href="../index.css">
+    <!-- custom css -->
+    <!--<link rel="stylesheet" type="text/css" href="grilledit.css"> -->
+
+    <!-- jQuery JS -->
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"
+        integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+
+    <!-- Moment JS for dates -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
+    <!-- main.js -->
+    <script src="grilledit.js"></script>
+</head>
+
+<body>
+    <a href="../index.html">
+        <img src="Photos\Grillber logo.png" width= 300 px>
+    </a>
+    <div class="background">
+        <div id="main-body" class="mt-2">
+            
+                    <div class="ml-2 flex-row">
+                        
+                        <label for = "user-select">Select User:</label>
+                        <select id="user-select" class="ml-2">
+                            <option val="null"></option>
+                        </select>
+                        <div>
+                            <button id ="find-button">Find my Grills</button>
+                        </div>
+                    </div>
+                    <div id="grill-list-div" class="flex-column">
+                        <table id="grill-list-table" class="table-border mr-2 mt-2">
+                            <thead>
+                                <td>City</td>
+                                <td>Brand</td>
+                                <td>Model</td>
+                                <td>Cost</td>
+                                <td>Delivery Fee</td>
+                                <td>Rating</td>
+                                <td>      </td>
+                            </thead>
+                            <tbody>
+            
+                            </tbody>
+                        </table>
+                    </div>
+       
+        </div>
+    </div>
+
+
+</body>
+
+</html>

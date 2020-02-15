@@ -31,7 +31,6 @@ function renderGrillPage(grill) {
     
 
     //Render the properties
-    //Delivery Fee: ${grill.DeliveryFee} --- to be added below 
     $("#grill-prop-div").append($(`<p>Available in ${grill.City} | 
         Cost: $${grill.Cost} per hour | Rating: ${grill.Rating} | Delivery Fee: ${grill.DeliveryFee} </p>`))
 
@@ -51,7 +50,4 @@ function populateUsersSelect(users) {
     .fail(function (xhr, status, err) {
         alert("Ajax Failed. Is the backend running? Err:" + status)
     });
-    
-    
-    
 }
