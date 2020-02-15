@@ -292,13 +292,10 @@ form {
     
 }
 #new-user-div {
-    
-    
   background-color: #cf6e6e;
   float: right;
- 
-  
 }
+
 #new-grill-div {
     float: right;
     clear: right;
@@ -307,7 +304,10 @@ form {
   background-color: #cf6e6e;
   
 }
-
+#grill-edit-div {
+    float: right;
+    clear: right;
+  }
 /* @media screen and (max-width: 600px) {
     .topnav .search-container {
         float: none;
