@@ -27,9 +27,7 @@ function runGrillSearch () {
 function addGrillToSeachResults(grill) {
     let grillTableBody = $("#grill-list-table tbody");
     let grillRow = $("<tr>");
-    grillRow.click(function () {
-        window.location.href = "./grillpage.html?grillId=" + grill.Id;
-    })
+    grillRow.click(openEditOptions)
     grillRow.append($(`<td>${grill.City}</td>
     <td>${grill.Brand}</td>
     <td>${grill.Model}</td>
@@ -74,4 +72,8 @@ function populateUsersSelect(users) {
     .fail(function (xhr, status, err) {
         alert("Ajax Failed. Is the backend running? Err:" + status)
     });    
+}
+
+function openEditOptions(){
+    alert("yes sir")
 }

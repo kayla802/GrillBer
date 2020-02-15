@@ -76,7 +76,14 @@ namespace GrillBer.Backend.Controllers
 			IEnumerable<Grill> grills = grillDao.GetGrills();
 			grills = grills.Where(g => g.OwnerId.Equals(ownerId));
 			return grills.ToArray();
+		}
 
+		[HttpPut]
+		[Route("{grillId:Guid}")]
+		public Grill EditGrill (Guid grillId, Grill updateGrill)
+		{
+			var grillDao = new GrillDao();
+			return grillDao.EditExistingGrill(grillId, updateGrill);
 		}
 	}
 }
