@@ -109,6 +109,7 @@ function editButtonFunctionality (grill) {
         Cost per Hour: ${grill.Cost}<input id="new-grill-cost"> | 
         Delivery Fee: ${grill.DeliveryFee}<input id="new-grill-delivery">
         <br/>
+        <br/>
         <button id ="edit-${grill.Id}-button">Edit this Grill</button>
         `));
         grillTableBody.append(grillRow);
