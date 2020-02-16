@@ -163,7 +163,7 @@ table {
 }
 
 table, td {
-    border: solid #48B8AD
+    border: solid rgb(141, 141, 141)
 }
 
 thead {
@@ -197,6 +197,12 @@ h4 {
     font-size: 30px;
     text-align: left;
     margin: 3px;
+}
+h5 {
+    color: #000000;
+    font-size: 30px;
+    text-align: center;
+    margin: 4px;
 }
 
 form {

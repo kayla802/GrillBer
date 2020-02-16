@@ -27,16 +27,29 @@ function runGrillSearch () {
 function addGrillToSeachResults(grill) {
     let grillTableBody = $("#grill-list-table tbody");
     let grillRow = $("<tr>");
-    grillRow.click(openEditOptions)
-    grillRow.append($(`<td>${grill.City}</td>
-    <td>${grill.Brand}</td>
-    <td>${grill.Model}</td>
-    <td>${grill.Cost}</td>
-    <td>${grill.DeliveryFee}</td>
-    <td>${grill.Rating}</td>`));
+    grillRow.append($(`<h5>
+    The ${grill.Brand} ${grill.Model}
+    located in ${grill.City}
+    <br/>
+    Cost per Hour: ${grill.Cost} | 
+    Delivery Fee: ${grill.DeliveryFee} | 
+    Rating: ${grill.Rating}
+    <br/>
+    <button id ="edit-${grill.Id}-button">Edit this Grill</button>
+    <button id ="delete-${grill.Id}-button">Delete this Grill</button>    
+    </h5>`));
 
-    grillRow.addClass("mt-1");
     grillTableBody.append(grillRow);
+
+    // $("#delete-${grill.Id}-button").click(function() {
+    //     $.ajax({
+    //        url: `${apiHostBase}/grill/${grill.Id}`,
+    //        method: "Delete"
+    //    }).done(function() {
+    //        alert("Successfully Deleted")})        
+    //    .fail(function (xhr, status, err) {
+    //        alert("Ajax Failed. Is the backend running? Err:" + status)
+    //    });    
 }
 
 //Clears search results and says loading. Should be used be ajax request to populate with search
@@ -72,8 +85,4 @@ function populateUsersSelect(users) {
     .fail(function (xhr, status, err) {
         alert("Ajax Failed. Is the backend running? Err:" + status)
     });    
-}
-
-function openEditOptions(){
-    alert("yes sir")
 }
