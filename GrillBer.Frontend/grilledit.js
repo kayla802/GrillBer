@@ -101,17 +101,17 @@ function editButtonFunctionality (grill) {
         grillTable.find("tbody").children().remove();
         let grillTableBody = $("#grill-list-table tbody");
         let grillRow = $("<tr>");
-        grillRow.append($(`<h5>
-        The ${grill.Brand}<input id="new-grill-brand"> 
-        ${grill.Model}<input id="new-grill-model">
-        located in ${grill.City}<input id="new-grill-city">
+        grillRow.append($(`<h4>
+        Grill Brand: ${grill.Brand}<input id="new-grill-brand"> | 
+        Grill Model: ${grill.Model}<input id="new-grill-model"> | 
+        City: ${grill.City}<input id="new-grill-city">
         <br/>
         Cost per Hour: ${grill.Cost}<input id="new-grill-cost"> | 
         Delivery Fee: ${grill.DeliveryFee}<input id="new-grill-delivery">
         <br/>
         <br/>
         <button id ="edit-${grill.Id}-button">Edit this Grill</button>
-        `));
+        </h4>`));
         grillTableBody.append(grillRow);
         // create new button and add functionality to that button
         $(`#edit-${grill.Id}-button`).click(function() {
