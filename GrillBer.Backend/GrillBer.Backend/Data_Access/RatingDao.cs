@@ -30,6 +30,12 @@ namespace GrillBer.Backend.Data_Access
             return ratingCol.FindAll().ToArray();
 
         }
+        public Rating GetSingleRatingById(Guid ratingId)
+        {
+            var ratingcol = db.GetCollection<Rating>("Ratings");
+            return ratingcol.FindById(ratingId);
+
+        }
 
     }
 

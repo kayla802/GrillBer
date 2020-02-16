@@ -3,7 +3,6 @@ using GrillBer.Backend.Models;
 using LiteDB;
 using System;
 using System.Collections.Generic;
-using System.Collections.Generic;
 using System.Linq;
 
 namespace GrillBer.Backend.Data_Access
