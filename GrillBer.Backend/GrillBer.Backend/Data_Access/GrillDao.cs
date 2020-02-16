@@ -48,7 +48,6 @@ namespace GrillBer.Backend.Data_Access
                 Rating = inGrill.Rating,
                 OwnerId = inGrill.OwnerId,
                 DeliveryFee = inGrill.DeliveryFee,
-                //RenterId = inGrill.RenterId
             };
 
 			grillCol.Insert(newGrill);
@@ -60,6 +59,48 @@ namespace GrillBer.Backend.Data_Access
             var grillCol = db.GetCollection<Grill>("Grills");
             grillCol.Delete(grillId);
 
+        }
+
+        public Grill EditExistingGrill(Guid grillId, Grill updateGrill)
+        {
+            var grillcol = db.GetCollection<Grill>("Grills");
+            var foundGrill = grillcol.FindById(grillId);
+            if (!string.IsNullOrWhiteSpace(updateGrill.Brand))
+            {
+                foundGrill.Brand = updateGrill.Brand;
+            }
+            if (!string.IsNullOrWhiteSpace(updateGrill.Model))
+            {
+                foundGrill.Model = updateGrill.Model;
+            }
+            if (!string.IsNullOrWhiteSpace(updateGrill.City))
+            {
+                foundGrill.City = updateGrill.City;
+            }
+            if (updateGrill.Cost != foundGrill.Cost)
+            {
+                if (updateGrill.Cost != 0)
+                {
+                    foundGrill.Cost = updateGrill.Cost;
+                }
+            }
+            if (updateGrill.Rating != foundGrill.Rating)
+            {
+                if (updateGrill.Rating != 0)
+                {
+                foundGrill.Rating = updateGrill.Rating;
+                }
+            }
+            if (updateGrill.DeliveryFee != foundGrill.DeliveryFee)
+            {
+                if (updateGrill.DeliveryFee != 0)
+                {
+                    foundGrill.DeliveryFee = updateGrill.DeliveryFee;
+                }
+            }
+
+            grillcol.Update(foundGrill);
+            return foundGrill;
         }
     }
 }

@@ -36,6 +36,10 @@ body {
     display: block;
 }
 
+.display-block-width-100 {
+    width: 90%;
+}
+
 .pl-1 {
     padding-left: 0.3em;
 }
@@ -152,7 +156,7 @@ h1 {
 }
 
 p {
-    color: #48b8ad;
+    color: #000000;
     font-size: 22px;
 }
 
@@ -163,7 +167,7 @@ table {
 }
 
 table, td {
-    border: solid #48B8AD
+    border: solid rgb(141, 141, 141)
 }
 
 thead {
@@ -197,6 +201,12 @@ h4 {
     font-size: 30px;
     text-align: left;
     margin: 3px;
+}
+h5 {
+    color: #000000;
+    font-size: 30px;
+    text-align: center;
+    margin: 4px;
 }
 
 form {
@@ -292,22 +302,115 @@ form {
     
 }
 #new-user-div {
-    
-    
-  background-color: #cf6e6e;
-  float: right;
- 
-  
-}
-#new-grill-div {
-    float: right;
-    clear: right;
-    margin-top: 10px;
-    
-  background-color: #cf6e6e;
-  
+  background-color: #2f641ab7;
+  float: none;
+  clear: both;
+  margin-right: 20px;
+  margin-left: 20px;
+  border-style: solid;
+  border-width: thin;
+  border-color: #000000;
 }
 
+#new-user-username {
+    width: 98%;
+}
+
+#new-user-first-name {
+    width: 98%;
+}
+
+#new-user-last-name {
+    width: 98%;
+}
+
+#new-user-btn {
+    width: 90%;
+    text-align: center;
+}
+
+#new-grill-div {
+    float: right;
+    clear: both;
+    margin-top: 10px;
+    margin-right: 20px;
+    margin-left: 20px;
+    border-style: solid;
+    border-width: thin;
+    border-color: #000000;
+    
+  background-color: #cf6e6e;
+  
+}
+#grill-edit-div {
+    float: right;
+    clear: right;
+  }
+
+
+
+  .navbar {
+    overflow: hidden;
+    background-color: rgba(27, 26, 26, 0.24);
+    font-family: Arial, Helvetica, sans-serif;
+  }
+  
+  .navbar a {
+    float: left;
+    font-size: 14px;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+  }
+  
+  .dropdown {
+    float: left;
+    overflow: hidden;
+  }
+  
+  .dropdown .dropbtn {
+    font-size: 16px;  
+    border: none;
+    outline: none;
+    color: white;
+    padding: 14px 16px;
+    background-color: inherit;
+    font-family: inherit;
+    margin: 0;
+  }
+  
+  .navbar a:hover, .dropdown:hover .dropbtn {
+    background-color:  rgb(8, 7, 7);
+    text-decoration: underline;
+  }
+  
+  .dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+  }
+  
+  .dropdown-content a {
+    float: none;
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    text-align: left;
+  }
+  
+  .dropdown-content a:hover {
+    background-color: #ddd;
+  }
+  
+  .dropdown:hover .dropdown-content {
+    display: block;
+  }
+  
 /* @media screen and (max-width: 600px) {
     .topnav .search-container {
         float: none;
