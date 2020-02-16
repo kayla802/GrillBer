@@ -1,6 +1,8 @@
 let apiHostBase = `https://localhost:44329/api`;
 
 $(function () {
+
+    $("#myModal").modal(
     // Add click event to "Add New User" and check username for existing
     $("#new-user-btn").click(function () {
         /**@type {User} user */
@@ -30,8 +32,8 @@ $(function () {
             });
             
         })
-    });
-
+    
+    }));
 
     // Add click event to "Add New Grill"
     $("#new-grill-btn").click(function () {

@@ -36,6 +36,10 @@ body {
     display: block;
 }
 
+.display-block-width-100 {
+    width: 90%;
+}
+
 .pl-1 {
     padding-left: 0.3em;
 }
@@ -298,14 +302,31 @@ form {
     
 }
 #new-user-div {
-  background-color: #cf6e6e;
-  float: right;
+  background-color: #2f641ab7;
+  float: none;
   clear: both;
   margin-right: 20px;
   margin-left: 20px;
   border-style: solid;
   border-width: thin;
   border-color: #000000;
+}
+
+#new-user-username {
+    width: 98%;
+}
+
+#new-user-first-name {
+    width: 98%;
+}
+
+#new-user-last-name {
+    width: 98%;
+}
+
+#new-user-btn {
+    width: 90%;
+    text-align: center;
 }
 
 #new-grill-div {
