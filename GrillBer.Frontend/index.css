@@ -300,12 +300,23 @@ form {
 #new-user-div {
   background-color: #cf6e6e;
   float: right;
+  clear: both;
+  margin-right: 20px;
+  margin-left: 20px;
+  border-style: solid;
+  border-width: thin;
+  border-color: #000000;
 }
 
 #new-grill-div {
     float: right;
-    clear: right;
+    clear: both;
     margin-top: 10px;
+    margin-right: 20px;
+    margin-left: 20px;
+    border-style: solid;
+    border-width: thin;
+    border-color: #000000;
     
   background-color: #cf6e6e;
   
