@@ -10,7 +10,8 @@
         <!-- jQuery JS -->
         <script src="https://code.jquery.com/jquery-3.4.1.min.js"
             integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
-        
+         <!-- Moment JS for dates -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
         <!-- main.js -->
         <script src="grillpage.js"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
@@ -98,9 +99,8 @@
                             </select>
                             <span class="ml-2">
                                 <label for="rental-date">Date of Rental:</label>
-                                <input type="date" id="start" name="trip-start"
+                                <input type="datetime-local" id="rental-date" name="trip-start"
                                 min="2020-01-01" max="2099-12-31">
-                                <input type="time" id="start-time" name="start-time">
                                 <label for="hours">Hours to Rent:</label>
                                 <input type="number" id="hours" name="hours" min="2" max="8">
                             </span>

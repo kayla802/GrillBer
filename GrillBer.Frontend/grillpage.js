@@ -15,14 +15,14 @@ $(function () {
 
     $("#rental-button").click(function(){
         /**@type {Rental} rental*/
-        $.ajax(`${apiHostBase}/grill/${$("#new-rental-grill").val().toString()}`)
-            .done(function (grill){
+        $.ajax(`${apiHostBase}/user/${$("#user-select").val().toString()}`)
+            .done(function (user, grill){
         let rental = {
-            User: $("#new-rental-username").val().toString(),
+            User: user.Id,
             Grill: grill.Id,
-            Start: DateTime.Now,
+            Start: $("#rental-date").val().toString(),
             //Start: $("#new-rental-start").val().toDateString(),
-            End: $("#new-rental-end").val().toDateString()
+            End: $("#rental-date").moment().add("#hours", 'h').val().toString()
         }
       
         $.ajax({
@@ -30,8 +30,7 @@ $(function () {
             method: "POST",
             data: rental
         }).done(function(){
-            refresh();
-            $("#new-rental-username").val(""),
+            $("#user-select").val(""),
             $("#new-rental-grill").val(""),
             $("#new-rental-start").val(""),
             $("#new-rental-end").val("")
