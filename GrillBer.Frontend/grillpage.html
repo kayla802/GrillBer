@@ -87,41 +87,29 @@
         <div id="main-body" class="mt-2">
             <div class="flex-row flex-justify-center">
                 <img id="grill-image" src="Photos\grill-2377860_960_720.jpg" height= 200 px>
-                <div id="grill-info-div" class="ml-2">
-                    <h4>
-                        Available: <span id="grill-available">3/2/19</span>
-                    </h4>
-                    <div class="ml-2 flex-row">
-                        
-                        <label for = "user-select">Select User:</label>
-                        <select id="user-select" class="ml-2">
-                            <option val="null"></option>
-                        </select>
-                        <span class="ml-2">
-                            <label for="start">Start Rental:</label>
-                            <input type="date" id="start" name="trip-start"
-                            value="2020-07-22"
-                            min="2020-01-01" max="2099-12-31">
-                            <label for="end">End Rental:</label>
-                            <input type="date" id="start" name="trip-start"
-                            value="2020-07-22"
-                            min="2020-01-01" max="2099-12-31">
-                        </span>
+                    <div id="grill-info-div" class="ml-2">
+                        <h4>
+                            Available: <span id="grill-available">3/2/19</span>
+                        </h4>
+                        <div class="ml-2 flex-row">
+                            <label for = "user-select">Select User:</label>
+                            <select id="user-select" class="ml-2">
+                                <option val="null"></option>
+                            </select>
+                            <span class="ml-2">
+                                <label for="rental-date">Date of Rental:</label>
+                                <input type="date" id="start" name="trip-start"
+                                min="2020-01-01" max="2099-12-31">
+                                <input type="time" id="start-time" name="start-time">
+                                <label for="hours">Hours to Rent:</label>
+                                <input type="number" id="hours" name="hours" min="2" max="8">
+                            </span>
+                        </div>
+                        <div>
+                            <button id ="rental-button">Reserve your GrillBer!</button>  
+                        </div>
                     </div>
-                    
-                    <div>
-                        <button id ="rental-button">Make a rental!</button>
-                        
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div id="more-like-div">
-            <h3 class="text-center">More Grills Like This One</h3>
-            <div id="recommended-grill-div" class="flex-row flex-justify-space-around">
-
             </div>
         </div>
     </div>
-
 </body>
