@@ -21,7 +21,7 @@
 
         li {
             float: right;
-        }
+        } */
 
         li a {
             display: inline-block;
@@ -31,9 +31,9 @@
             text-decoration: none;
         }
 
-        /* li a:hover {
-            background-color: rgb(8, 7, 7); 
-        }*/
+        li a:hover {
+            background-color: rgb(8, 7, 7);
+        }
     </style>
 </head>
 
@@ -41,23 +41,22 @@
     <!-- add menu bar with dropdown -->
     <div class="navbar">
         <ul>
+            <li><a href="../index.html">Home</a></li>
+            <li><a data-toggle="modal" href="#myModal">Sign Up</a></li>
             <li><a href="./faq.html">FAQs</a></li>
             <li><a href="./contact.html">Contact</a></li>
             <li><a href="./about.html">About</a></li>
             <li>
-                <div class="dropdown">
-                    <button class="dropbtn">Grills<i class="fa fa-caret-down"></i>
-                    </button>
-                    <div class="dropdown-content">
-                        <a href="./grilledit.html">My Grills</a>
-                        <a href="./grilledit.html">Available Grills</a>
-                        <a href="./grilledit.html">List a Grill</a>
-                    </div>
+                    <a href="./grilledit.html">Grills<i class="fa fa-caret-down"></i>
+                    
+                    <ul class="dropdown">
+                        <li><a href="./grilledit.html">My Grills</a></li>
+                        <li><a href="./grilledit.html">Available Grills</a></li>
+                        <li><a href="./grilledit.html">List a Grill</a></li>
+                    </ul>
                 </div>
             </li>
-            <!-- <li><a href="./grilledit.html">Grills</a></li> -->
             <li><a data-toggle="modal" href="#myModal">Sign Up</a></li>
-            <!-- <li><a href="../index.html">Sign Up</a></li> -->
             <li><a href="../index.html">Home</a></li>
         </ul>
 
@@ -82,7 +81,7 @@
                             <input id="new-user-last-name">
                             <br>
                             <br>
-                    
+
                             <button id="new-user-btn" class="display-block-width-100">Submit</button>
                         </div>
                     </div>
