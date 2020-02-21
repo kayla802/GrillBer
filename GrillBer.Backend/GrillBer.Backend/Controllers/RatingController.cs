@@ -33,7 +33,7 @@ namespace GrillBer.Backend.Controllers
 
             else
             {
-                return ratingDao.GetAllRatings();
+                return ratings.ToArray();
             }
         }
         [HttpGet]
