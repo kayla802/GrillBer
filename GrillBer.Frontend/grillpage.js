@@ -15,14 +15,14 @@ $(function () {
 
     $("#rental-button").click(function(){
         /**@type {Rental} rental*/
-        $.ajax(`${apiHostBase}/user/${$("#user-select").val().toString()}`)
-            .done(function (user, grill){
+        $.ajax(`${apiHostBase}/grill/${$("#new-rental-grill").val().toString()}`)
+            .done(function (grill){
         let rental = {
-            User: user.Id,
+            User: $("#new-rental-username").val().toString(),
             Grill: grill.Id,
-            Start: $("#rental-date").val().toString(),
+            Start: DateTime.Now,
             //Start: $("#new-rental-start").val().toDateString(),
-            End: $("#rental-date").moment().add("#hours", 'h').val().toString()
+            End: $("#new-rental-end").val().toDateString()
         }
       
         $.ajax({
@@ -30,7 +30,8 @@ $(function () {
             method: "POST",
             data: rental
         }).done(function(){
-            $("#user-select").val(""),
+            refresh();
+            $("#new-rental-username").val(""),
             $("#new-rental-grill").val(""),
             $("#new-rental-start").val(""),
             $("#new-rental-end").val("")
@@ -59,13 +60,19 @@ function renderGrillPage(grill) {
         .fail(function (xhr, status, err) {
             alert("Ajax Failed. Is the backend running. Err:" + status)
         });;
-    
+        $(document).ready(function() {
+            $('#rateMe3').mdbRate();
+          });
 
     //Render the properties
     $("#grill-prop-div").append($(`<p>Available in ${grill.City} | 
         Cost: $${grill.Cost} per hour | Rating: ${grill.Rating} | Delivery Fee: ${grill.DeliveryFee} </p>`))
 
     populateUsersSelect();
+    populateRatingsList();
+
+    
+    
 }
 
 
@@ -82,3 +89,37 @@ function populateUsersSelect(users) {
         alert("Ajax Failed. Is the backend running? Err:" + status)
     });
 }
+
+
+// tried to copy the grill results table
+// function addSingleRatingToRatingList(rating) {
+//     let ratinglist = $("#rating-list-table");
+//     let ratingRow = $("<tr>");
+    
+//     ratingRow.append($(`<td>${rating.Id}</td>
+//     <td>${rating.UserId}</td>
+//     <td>${rating.RatingScore}</td>
+//     <td>${rating.GrillId}</td>
+//     <td>${rating.RentalId}</td>`));
+
+//     ratingRow.addClass("mt-1");
+//     ratingList.append(ratingRow);
+// }
+
+//create a rating list for grill page
+function populateRatingsList(grill){
+    
+    let grill = rating.grillId
+    $.ajax(`${apiHostBase}/Rating`)
+    .done(function(ratings){
+        
+        for(let rating of ratings){
+            $("#ratings-list").append(`<li>${rating.RatingScore}</li>`);
+        }
+    })
+    .fail(function (xhr, status, err) {
+        alert("Ajax Failed. Is the backend running? Err:" + status)
+    });
+}
+
+
