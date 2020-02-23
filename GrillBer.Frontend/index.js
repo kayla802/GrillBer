@@ -3,37 +3,37 @@ let apiHostBase = `https://localhost:44329/api`;
 $(function () {
 
     $("#myModal").modal(
-    // Add click event to "Add New User" and check username for existing
-    $("#new-user-btn").click(function () {
-        /**@type {User} user */
-        let user = {
-            Username: $("#new-user-username").val().toString(),
-            FirstName: $("#new-user-first-name").val().toString(),
-            LastName: $("#new-user-last-name").val().toString()
-        }
-        $.ajax({
-            url: `${apiHostBase}/user/${user.Username}`,
-            method: "GET"
-        }).done(function(){
-            alert("Please select another Username")
-        }).fail(function(){
-        $.ajax({
-            url: `${apiHostBase}/user`,
-            method: "POST",
-            data: user
-        }).done(function(){
-            refresh();
-            $("#new-user-username").val(""),
-            $("#new-user-first-name").val(""),
-            $("#new-user-last-name").val("")
-        })
-            .fail(function (xhr, status, err) {
-                alert("Ajax Failed. Is the backend running? Err:" + status)
-            });
-            
-        })
-    
-    }));
+        // Add click event to "Add New User" and check username for existing
+        $("#new-user-btn").click(function () {
+            /**@type {User} user */
+            let user = {
+                Username: $("#new-user-username").val().toString(),
+                FirstName: $("#new-user-first-name").val().toString(),
+                LastName: $("#new-user-last-name").val().toString()
+            }
+            $.ajax({
+                url: `${apiHostBase}/user/${user.Username}`,
+                method: "GET"
+            }).done(function () {
+                alert("Please select another Username")
+            }).fail(function () {
+                $.ajax({
+                    url: `${apiHostBase}/user`,
+                    method: "POST",
+                    data: user
+                }).done(function () {
+                    refresh();
+                    $("#new-user-username").val(""),
+                        $("#new-user-first-name").val(""),
+                        $("#new-user-last-name").val("")
+                })
+                    .fail(function (xhr, status, err) {
+                        alert("Ajax Failed. Is the backend running? Err:" + status)
+                    });
+
+            })
+
+        }));
 
     // Add click event to "Add New Grill"
     $("#new-grill-btn").click(function () {
@@ -53,16 +53,16 @@ $(function () {
                     url: `${apiHostBase}/grill`,
                     method: "POST",
                     data: grill
-                }).done(function(){
+                }).done(function () {
                     refresh();
                     $("#new-grill-owner").val(""),
-                    $("#new-grill-brand").val(""),
-                    $("#new-grill-model").val(""),
-                    $("#new-grill-city").val(""),
-                    $("#new-grill-cost").val(""),
-                    $("#new-grill-delivery").val("")
+                        $("#new-grill-brand").val(""),
+                        $("#new-grill-model").val(""),
+                        $("#new-grill-city").val(""),
+                        $("#new-grill-cost").val(""),
+                        $("#new-grill-delivery").val("")
 
-                })        
+                })
                     .fail(function (xhr, status, err) {
                         alert("Ajax Failed. Is the backend running? Err:" + status)
                     });
@@ -110,7 +110,6 @@ function runGrillSearch() {
         searchParams.Rating = $("#rating-select :selected").val();
     }
 
-
     let searchParamsString = "";
     for (let searchParam in searchParams) {
         if (searchParamsString !== "") {
@@ -119,13 +118,27 @@ function runGrillSearch() {
         searchParamsString += searchParam + "=" + searchParams[searchParam];
     }
     clearSearchResultsAndSayLoading();
+    
     $.ajax({
+
         url: `${apiHostBase}/grill?${searchParamsString}`,
         method: "GET"
-    }).done(populateSearchResults)
-        .fail(function (xhr, status, err) {
-            alert("Ajax Failed. Is the backend running? Err;" + status)
-        });
+    }).done(
+        function (grills) {
+            var availableGrills = []
+            for (let grill of grills) {
+                $.ajax(
+                    {
+                        url: `${apiHostBase}/rental?grillId=${grill.Id}`,
+                        method: "GET"
+                    }).done(function (rental) {
+                        if (rental.Date !== $("#rental-date-select").text()) {
+                            availableGrills.push(grill);
+                        }                        
+                    })
+            }
+                    
+    },populateSearchResults)
 }
 
 // Add single grill to the search results table
@@ -166,7 +179,7 @@ function clearSearchResultsAndSayLoading() {
 function populateSearchResults(grills) {
     $("loadingDiv").remove();
     for (let grill of grills) {
-        addGrillToSeachResults(grill);
+        addGrillToSearchResults(grill);
     }
     if ($.trim(grills) == '') {
         let grillMainBody = $("#main-body");
@@ -228,8 +241,8 @@ function populateModelUi(grills) {
     }
 }
 
-
-
+//Determines Grill Availability
+//function grillAvailability(
 
 
 

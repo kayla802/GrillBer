@@ -1,16 +1,15 @@
+<head>
+    <!-- Get the css from the main page -->
+    <link rel="stylesheet" type="text/css" href="../index.css">
 
-    <head>
-        <!-- Get the css from the main page -->
-        <link rel="stylesheet" type="text/css" href="../index.css">
-        
-        <!-- custom css -->
-        <link rel="stylesheet" type="text/css" href="grillpage.css">
-        
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
-        <!-- jQuery JS -->
-        <script src="https://code.jquery.com/jquery-3.4.1.min.js"
-            integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
-         <!-- Moment JS for dates -->
+    <!-- custom css -->
+    <link rel="stylesheet" type="text/css" href="grillpage.css">
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <!-- jQuery JS -->
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"
+        integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+    <!-- Moment JS for dates -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
         <!-- main.js -->
         <script src="grillpage.js"></script>
@@ -43,6 +42,11 @@
             li a:hover {
                 background-color: rgb(8, 7, 7);
             }
+            .background {
+                padding-bottom: 15px;
+                margin-top: 10%;
+
+            }
         </style>
     </head>
     
@@ -63,18 +67,19 @@
                             <a href="./grilledit.html">List a Grill</a>
                         </div>
                     </div>
-                </li>
-                <!-- <li><a href="./grilledit.html">Grills</a></li> -->
-                <li><a href="../index.html">Sign Up</a></li>
-                <li><a href="../index.html">Home</a></li>
-            </ul>
-        </div>
-    
-    </body>
+                </div>
+            </li>
+            <!-- <li><a href="./grilledit.html">Grills</a></li> -->
+            <li><a href="../index.html">Sign Up</a></li>
+            <li><a href="../index.html">Home</a></li>
+        </ul>
+    </div>
+
+</body>
 
 <body>
     <a href="../index.html">
-        <img src="Photos\Grillber logo.png" width= 300 px>
+        <img src="Photos\Grillber logo.png" width=300 px>
     </a>
     <div class="background">
         <div id="top-bar" class="flex-row">
@@ -87,33 +92,28 @@
         </div>
         <div id="main-body" class="mt-2">
             <div class="flex-row flex-justify-center">
-                <img id="grill-image" src="Photos\grill-2377860_960_720.jpg" height= 200 px>
-                    <div id="grill-info-div" class="ml-2">
-                        <h4>
-                            Available: <span id="grill-available">3/2/19</span>
-                        </h4>
-                        <div class="ml-2 flex-row">
-                            <label for = "user-select">Select User:</label>
-                            <select id="user-select" class="ml-2">
-                                <option val="null"></option>
-                            </select>
-                            <span class="ml-2">
-                                <label for="rental-date">Date of Rental:</label>
-                                <input type="datetime-local" id="rental-date" name="trip-start"
-                                min="2020-01-01" max="2099-12-31">
-                                <label for="hours">Hours to Rent:</label>
-                                <input type="number" id="hours" name="hours" min="2" max="8">
-                            </span>
-                        </div>
-                        <div>
-                            <button id ="rental-button">Reserve your GrillBer!</button>  
-                        </div>
-                        <br>
-                        <div id="ratings-list">
-                        </div>
-                        <div id="ratings-user-name-list">
-                        </div>
+                <img id="grill-image" src="Photos\grill-2377860_960_720.jpg" height=200 px>
+                <div id="grill-info-div" class="ml-2">
+                    <h4>
+                        Available: <span id="grill-available">3/2/19</span>
+                    </h4>
+                    <div class="ml-2 flex-row">
+                        <label for="user-select">Select User:</label>
+                        <select id="user-select" class="ml-2">
+                            <option val="null"></option>
+                        </select>
+                        <span class="ml-2">
+                            <label for="rental-date">Date of Rental:</label>
+                            <input type="date" id="rental-date" name="trip-start" min="2020-01-01"
+                                max="2099-12-31">
+                            <label for="hours">Hours to Rent:</label>
+                            <input type="number" id="hours" name="hours" min="1" max="8">
+                        </span>
                     </div>
+                    <div>
+                        <button id="rental-button">Reserve your GrillBer!</button>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
