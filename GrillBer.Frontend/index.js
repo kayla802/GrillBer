@@ -40,6 +40,7 @@ $(function () {
         /**@type {Grill} grill */
         $.ajax(`${apiHostBase}/user/${$("#new-grill-owner").val().toString()}`)
             .done(function (user) {
+
                 let grill = {
                     OwnerId: user.Id,
                     Brand: $("#new-grill-brand").val().toString(),
@@ -130,6 +131,12 @@ function runGrillSearch() {
 // Add single grill to the search results table
 
 function addGrillToSeachResults(grill) {
+    $.ajax(`${apiHostBase}/rating?grillId=${grill.Id}`)
+    .done(function (rating) {
+    let grillRating = []
+    grillRating.push(rating);
+    console.log(grillRating[0]);
+
     let grillTableBody = $("#grill-list-table tbody");
     let grillRow = $("<tr>");
     grillRow.click(function () {
@@ -139,10 +146,11 @@ function addGrillToSeachResults(grill) {
     <td>${grill.Brand}</td>
     <td>${grill.Model}</td>
     <td>${grill.Cost}</td>
-    <td>${grill.Rating}</td>`));
+    <td>${rating[0].RatingScore}</td>`));
 
     grillRow.addClass("mt-1");
     grillTableBody.append(grillRow);
+});
 }
 
 //Clears search results and says loading. Should be used be ajax request to populate with search

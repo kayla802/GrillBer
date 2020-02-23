@@ -45,6 +45,7 @@ namespace GrillBer.Backend.Controllers
             return ratingDao.GetSingleRatingById(ratingId);
         
         }
+
         
     }
 }
