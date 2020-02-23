@@ -143,7 +143,7 @@ function runGrillSearch() {
 
 // Add single grill to the search results table
 
-function addGrillToSeachResults(grill) {
+function addGrillToSearchResults(grill) {
     $.ajax(`${apiHostBase}/rating?grillId=${grill.Id}`)
     .done(function (rating) {
     let grillRating = []
