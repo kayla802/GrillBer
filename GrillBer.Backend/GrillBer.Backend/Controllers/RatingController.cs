@@ -25,7 +25,7 @@ namespace GrillBer.Backend.Controllers
             var ratingDao = new RatingDao();
             IEnumerable<Rating> ratings = ratingDao.GetAllRatings();
 
-            if (grillId == null)
+            if (grillId != null)
             {
                 ratings = ratings.Where(g => g.GrillId.Equals(grillId));
                 return ratings.ToArray();
