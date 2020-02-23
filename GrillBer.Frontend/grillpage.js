@@ -60,9 +60,7 @@ function renderGrillPage(grill) {
         .fail(function (xhr, status, err) {
             alert("Ajax Failed. Is the backend running. Err:" + status)
         });;
-        $(document).ready(function() {
-            $('#rateMe3').mdbRate();
-          });
+        
 
     //Render the properties
     $("#grill-prop-div").append($(`<p>Available in ${grill.City} | 
@@ -107,9 +105,9 @@ function populateUsersSelect(users) {
 // }
 
 //create a rating list for grill page
-function populateRatingsList(grill){
+function populateRatingsList(grillGuid){
     
-    let grill = rating.grillId
+    //let grillGuid = rating.grillId;
     $.ajax(`${apiHostBase}/Rating`)
     .done(function(ratings){
         
