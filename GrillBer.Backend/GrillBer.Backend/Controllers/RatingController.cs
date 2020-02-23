@@ -20,10 +20,21 @@ namespace GrillBer.Backend.Controllers
         }
 
         [HttpGet]
-        public IEnumerable<Rating> GetAllRatings()
+        public Rating[] GetAllRatings(Guid? grillId = null)
         {
             var ratingDao = new RatingDao();
-            return ratingDao.GetAllRatings();
+            IEnumerable<Rating> ratings = ratingDao.GetAllRatings();
+
+            if (grillId != null)
+            {
+                ratings = ratings.Where(g => g.GrillId.Equals(grillId));
+                return ratings.ToArray();
+            }
+
+            else
+            {
+                return ratings.ToArray();
+            }
         }
         [HttpGet]
         [Route("{ratingId:Guid}")]
