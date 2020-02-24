@@ -3,43 +3,44 @@ let apiHostBase = `https://localhost:44329/api`;
 $(function () {
 
     $("#myModal").modal(
-    // Add click event to "Add New User" and check username for existing
-    $("#new-user-btn").click(function () {
-        /**@type {User} user */
-        let user = {
-            Username: $("#new-user-username").val().toString(),
-            FirstName: $("#new-user-first-name").val().toString(),
-            LastName: $("#new-user-last-name").val().toString()
-        }
-        $.ajax({
-            url: `${apiHostBase}/user/${user.Username}`,
-            method: "GET"
-        }).done(function(){
-            alert("Please select another Username")
-        }).fail(function(){
-        $.ajax({
-            url: `${apiHostBase}/user`,
-            method: "POST",
-            data: user
-        }).done(function(){
-            refresh();
-            $("#new-user-username").val(""),
-            $("#new-user-first-name").val(""),
-            $("#new-user-last-name").val("")
-        })
-            .fail(function (xhr, status, err) {
-                alert("Ajax Failed. Is the backend running? Err:" + status)
-            });
-            
-        })
-    
-    }));
+        // Add click event to "Add New User" and check username for existing
+        $("#new-user-btn").click(function () {
+            /**@type {User} user */
+            let user = {
+                Username: $("#new-user-username").val().toString(),
+                FirstName: $("#new-user-first-name").val().toString(),
+                LastName: $("#new-user-last-name").val().toString()
+            }
+            $.ajax({
+                url: `${apiHostBase}/user/${user.Username}`,
+                method: "GET"
+            }).done(function () {
+                alert("Please select another Username")
+            }).fail(function () {
+                $.ajax({
+                    url: `${apiHostBase}/user`,
+                    method: "POST",
+                    data: user
+                }).done(function () {
+                    refresh();
+                    $("#new-user-username").val(""),
+                        $("#new-user-first-name").val(""),
+                        $("#new-user-last-name").val("")
+                })
+                    .fail(function (xhr, status, err) {
+                        alert("Ajax Failed. Is the backend running? Err:" + status)
+                    });
+
+            })
+
+        }));
 
     // Add click event to "Add New Grill"
     $("#new-grill-btn").click(function () {
         /**@type {Grill} grill */
         $.ajax(`${apiHostBase}/user/${$("#new-grill-owner").val().toString()}`)
             .done(function (user) {
+
                 let grill = {
                     OwnerId: user.Id,
                     Brand: $("#new-grill-brand").val().toString(),
@@ -52,16 +53,16 @@ $(function () {
                     url: `${apiHostBase}/grill`,
                     method: "POST",
                     data: grill
-                }).done(function(){
+                }).done(function () {
                     refresh();
                     $("#new-grill-owner").val(""),
-                    $("#new-grill-brand").val(""),
-                    $("#new-grill-model").val(""),
-                    $("#new-grill-city").val(""),
-                    $("#new-grill-cost").val(""),
-                    $("#new-grill-delivery").val("")
+                        $("#new-grill-brand").val(""),
+                        $("#new-grill-model").val(""),
+                        $("#new-grill-city").val(""),
+                        $("#new-grill-cost").val(""),
+                        $("#new-grill-delivery").val("")
 
-                })        
+                })
                     .fail(function (xhr, status, err) {
                         alert("Ajax Failed. Is the backend running? Err:" + status)
                     });
@@ -109,7 +110,6 @@ function runGrillSearch() {
         searchParams.Rating = $("#rating-select :selected").val();
     }
 
-
     let searchParamsString = "";
     for (let searchParam in searchParams) {
         if (searchParamsString !== "") {
@@ -118,18 +118,38 @@ function runGrillSearch() {
         searchParamsString += searchParam + "=" + searchParams[searchParam];
     }
     clearSearchResultsAndSayLoading();
+    
     $.ajax({
+
         url: `${apiHostBase}/grill?${searchParamsString}`,
         method: "GET"
-    }).done(populateSearchResults)
-        .fail(function (xhr, status, err) {
-            alert("Ajax Failed. Is the backend running? Err;" + status)
-        });
+    }).done(
+        function (grills) {
+            var availableGrills = []
+            for (let grill of grills) {
+                $.ajax(
+                    {
+                        url: `${apiHostBase}/rental?grillId=${grill.Id}`,
+                        method: "GET"
+                    }).done(function (rental) {
+                        if (rental.Date !== $("#rental-date-select").text()) {
+                            availableGrills.push(grill);
+                        }                        
+                    })
+            }
+                    
+    },populateSearchResults)
 }
 
 // Add single grill to the search results table
 
-function addGrillToSeachResults(grill) {
+function addGrillToSearchResults(grill) {
+    $.ajax(`${apiHostBase}/rating?grillId=${grill.Id}`)
+    .done(function (rating) {
+    let grillRating = []
+    grillRating.push(rating);
+    console.log(grillRating[0]);
+
     let grillTableBody = $("#grill-list-table tbody");
     let grillRow = $("<tr>");
     grillRow.click(function () {
@@ -139,10 +159,11 @@ function addGrillToSeachResults(grill) {
     <td>${grill.Brand}</td>
     <td>${grill.Model}</td>
     <td>${grill.Cost}</td>
-    <td>${grill.Rating}</td>`));
+    <td>${rating[0].RatingScore}</td>`));
 
     grillRow.addClass("mt-1");
     grillTableBody.append(grillRow);
+});
 }
 
 //Clears search results and says loading. Should be used be ajax request to populate with search
@@ -158,7 +179,7 @@ function clearSearchResultsAndSayLoading() {
 function populateSearchResults(grills) {
     $("loadingDiv").remove();
     for (let grill of grills) {
-        addGrillToSeachResults(grill);
+        addGrillToSearchResults(grill);
     }
     if ($.trim(grills) == '') {
         let grillMainBody = $("#main-body");
@@ -220,8 +241,8 @@ function populateModelUi(grills) {
     }
 }
 
-
-
+//Determines Grill Availability
+//function grillAvailability(
 
 
 
