@@ -11,65 +11,61 @@
         integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
     <!-- Moment JS for dates -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
-        <!-- main.js -->
-        <script src="grillpage.js"></script>
-        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
-          
-    </head>
-    
-    <head>
-        <style>
-            ul {
-                list-style-type: none;
-                margin: 0;
-                padding: 0;
-                overflow: hidden;
-                background-color: rgba(27, 26, 26, 0.568);
-            }
-    
-            li {
-                float: right;
-            }
-    
-            li a {
-                display: inline-block;
-                color: white;
-                text-align: center;
-                padding: 14px 16px;
-                text-decoration: none;
-            }
-    
-            li a:hover {
-                background-color: rgb(8, 7, 7);
-            }
-            .background {
-                padding-bottom: 15px;
-                margin-top: 10%;
+    <!-- main.js -->
+    <script src="grillpage.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 
-            }
-        </style>
-    </head>
-    
-    <body>
-    
-        <div class="navbar">
-            <ul>
-                <li><a href="./faq.html">FAQs</a></li>
-                <li><a href="./contact.html">Contact</a></li>
-                <li><a href="./about.html">About</a></li>
-                <li>
-                    <div class="dropdown">
-                        <button class="dropbtn">Grills<i class="fa fa-caret-down"></i>
-                        </button>
-                        <div class="dropdown-content">
-                            <a href="./grilledit.html">My Grills</a>
-                            <a href="./grilledit.html">Available Grills</a>
-                            <a href="./grilledit.html">List a Grill</a>
-                        </div>
-                    </div>
-                </div>
+</head>
+
+<head>
+    <style>
+        ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+            background-color: rgba(27, 26, 26, 0.568);
+        }
+
+        li {
+            float: right;
+        }
+
+        li a {
+            display: inline-block;
+            color: white;
+            text-align: center;
+            padding: 14px 16px;
+            text-decoration: none;
+        }
+
+        li a:hover {
+            background-color: rgb(8, 7, 7);
+        }
+
+        .background {
+            padding-bottom: 15px;
+            margin-top: 10%;
+
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="navbar">
+        <ul>
+            <li><a href="./faq.html">FAQs</a></li>
+            <li><a href="./contact.html">Contact</a></li>
+            <li><a href="./about.html">About</a></li>
+            <li><a href="./grilledit.html">Grills<i class="fa fa-caret-down"></i>
+                    <ul class="dropdown">
+                        <a href="./grilledit.html">My Grills</a>
+                        <a href="./grilledit.html">Available Grills</a>
+                        <a href="./grilledit.html">List a Grill</a>
+                    </ul>
+
             </li>
-            <!-- <li><a href="./grilledit.html">Grills</a></li> -->
             <li><a href="../index.html">Sign Up</a></li>
             <li><a href="../index.html">Home</a></li>
         </ul>
@@ -104,14 +100,17 @@
                         </select>
                         <span class="ml-2">
                             <label for="rental-date">Date of Rental:</label>
-                            <input type="date" id="rental-date" name="trip-start" min="2020-01-01"
-                                max="2099-12-31">
+                            <input type="date" id="rental-date" name="trip-start" min="2020-01-01" max="2099-12-31">
                             <label for="hours">Hours to Rent:</label>
                             <input type="number" id="hours" name="hours" min="1" max="8">
                         </span>
                     </div>
                     <div>
                         <button id="rental-button">Reserve your GrillBer!</button>
+                    </div>
+                    <br>
+                    <div id="ratings-list">
+                        
                     </div>
                 </div>
             </div>
