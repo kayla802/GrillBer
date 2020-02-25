@@ -9,34 +9,6 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 </head>
 
-<head>
-    <style>
-        ul {
-            list-style-type: none;
-            margin: 0;
-            padding: 0;
-            overflow: hidden;
-            background-color: rgba(27, 26, 26, 0.568);
-        }
-
-        li {
-            float: right;
-        }
-
-        li a {
-            display: inline-block;
-            color: white;
-            text-align: center;
-            padding: 14px 16px;
-            text-decoration: none;
-        }
-
-        li a:hover {
-            background-color: rgb(8, 7, 7);
-        }
-    </style>
-</head>
-
 <body>
     <!-- add menu bar with dropdown -->
     <div class="navbar">
@@ -44,13 +16,15 @@
             <li><a href="./faq.html">FAQs</a></li>
             <li><a href="./contact.html">Contact</a></li>
             <li><a href="./about.html">About</a></li>
-            <li class="dropdown">
-                <a class="dropbtn">Grills</a>
-
-                <div class="dropdown-content">
-                    <a href="./grilledit.html">My Grills</a>
-                    <a href="./grilledit.html">Available Grills</a>
-                    <a href="./grilledit.html">List a Grill</a>
+            <li>
+                <div class="dropdown">
+                    <button class="dropbtn">Grills
+                    </button>
+                    <div class="dropdown-content">
+                        <a href="./grilledit.html">My Grills</a>
+                        <!-- <a href="./grilledit.html">Available Grills</a> -->
+                        <a href="./grilledit.html">List a Grill</a>
+                    </div>
                 </div>
             </li>
             <li><a href="../index.html">Sign Up</a></li>
