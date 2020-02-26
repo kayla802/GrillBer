@@ -12,7 +12,7 @@ namespace GrillBer.Backend.Controllers
     [RoutePrefix("api/rental")]
     public class RentalController : ApiController
     {
-                
+
         [HttpPost]
         public Rental NewRental(Rental inRental)
         {
@@ -20,13 +20,24 @@ namespace GrillBer.Backend.Controllers
             return rentalDao.NewRental(inRental);
         }
 
-		[HttpGet]
-		public IEnumerable<Rental> GetAllRentals()
-		{
-			RentalDao rentalDao = new RentalDao();
-			return rentalDao.GetAllRentals();
-		}
+        [HttpGet]
 
-	}
+        public Rental[] GetAllRentals(Guid? grillId = null)
+        {
+            var rentalDao = new RentalDao();
+            IEnumerable<Rental> rentals = rentalDao.GetAllRentals();
+
+            if (grillId != null)
+            {
+                rentals = rentals.Where(g => g.Grill.Equals(grillId));
+                return rentals.ToArray();
+            }
+
+            else
+            {
+                return rentals.ToArray();
+            }
+        }
+    }
 }
 
