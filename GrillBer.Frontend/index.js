@@ -124,25 +124,14 @@ function runGrillSearch() {
 
         url: `${apiHostBase}/grill?${searchParamsString}`,
         method: "GET"
-    }).done(
-        function (grills) {
-            var availableGrills = []
-            for (let grill of grills) {
-                $.ajax(
-                    {
-                        url: `${apiHostBase}/rental?grillId=${grill.Id}`,
-                        method: "GET"
-                    }).done(function (rental) {
-                        if (rental.Date !== $("#rental-date-select").text()) {
-                            availableGrills.push(grill);
-                        }                        
-                    })
-            }
-                    
-    },populateSearchResults)
+    }).done(populateSearchResults)
+        .fail(function (xhr, status, err) {
+            alert("Ajax Failed. Is the backend running? Err;" + status)
+        });
+        
 }
 
-// Add single grill to the search results table
+//Add single grill to the search results table
 
 function addGrillToSearchResults(grill) {
     $.ajax(`${apiHostBase}/rating?grillId=${grill.Id}`)
@@ -243,9 +232,22 @@ function populateModelUi(grills) {
 }
 
 //Determines Grill Availability
-//function grillAvailability(
+// function runDateSearch()
+// {
+//     $.ajax(`${apiHostBase}/grill`)
+//     .done(function (grills) {
+//         var availableGrills = []
 
+//         for (let grill of grills) {
+//             $.ajax(`${apiHostBase}/rental?grill=${grill.Id}`)
+//             .done(function (rentals) {
+//                     if (rentals.Start == $("#rental-date-select").text()) {
+//                         availableGrills.remove(grill);
+//                     }                        
+//             })
+//         }
+                    
+//     })
 
-
-
+// }
 
