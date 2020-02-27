@@ -25,7 +25,8 @@ namespace GrillBer.Backend.Controllers
 		public User GetUserByUsername(string username)
 		{
 			var userDao = new UserDao();
-			return userDao.GetUserByUsername(username);
+			var foundUser = userDao.GetUserByUsername(username);
+            return foundUser;
 		}
 
 		[HttpGet]
