@@ -366,12 +366,12 @@ form {
     text-decoration: none;
   }
   
-.dropdown {
+.my-dropdown {
     float: right;
     overflow: hidden;
   }
   
-.dropdown .dropbtn {
+.my-dropdown .dropbtn {
     font-size: 16px;  
     border: none;
     outline: none;
@@ -382,12 +382,12 @@ form {
     margin: 0;
   }
   
-.navbar a:hover, .dropdown:hover .dropbtn {
+.navbar a:hover, .my-dropdown:hover .dropbtn {
     background-color:  rgb(8, 7, 7);
     text-decoration: underline;
   }
   
-.dropdown-content {
+.my-dropdown-content {
     display: none;
     position: absolute;
     background-color: rgba(27, 26, 26, 0.24);
@@ -396,7 +396,7 @@ form {
     z-index: 1;
   }
   
-.dropdown-content a {
+.my-dropdown-content a {
     float: none;
     color: black;
     padding: 12px 16px;
@@ -405,11 +405,11 @@ form {
     text-align: left;
   }
   
-.dropdown-content a:hover {
+.my-dropdown-content a:hover {
       background-color: #0f0909;
     }
   
-.dropdown:hover .dropdown-content {
+.my-dropdown:hover .my-dropdown-content {
     display: block;
   }
   
