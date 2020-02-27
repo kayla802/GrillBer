@@ -1,6 +1,15 @@
 .flex-column {
     display: flex;
     flex-direction: column;
+    justify-content: center;
+}
+
+.flex-column tr h4{
+    width: 100%;
+    margin: 10px;
+    text-align: center;
+    line-height: 75px;
+    font-size: 30px;
 }
 
 .flex-row {
@@ -87,11 +96,13 @@ body {
 .table-border {
     /* border: 1px solid black; */
     border-collapse: collapse;
+    justify-content: center;
 }
 
 .table-border thead {
     text-align: center;
     font-weight: bold;
+    justify-content: center;
 }
 
 .table-border tbody tr {

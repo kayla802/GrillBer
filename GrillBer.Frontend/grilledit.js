@@ -102,13 +102,13 @@ function editButtonFunctionality (grill) {
         let grillTableBody = $("#grill-list-table tbody");
         let grillRow = $("<tr>");
         grillRow.append($(`<h4>
-        Grill Brand: ${grill.Brand}<input id="new-grill-brand"> | 
-        Grill Model: ${grill.Model}<input id="new-grill-model"> | 
-        City: ${grill.City}<input id="new-grill-city">
+        Current Grill Brand: ${grill.Brand} |
+        Updated Grill Brand: <input id="new-grill-brand"> <br>
+        Current Grill Model: ${grill.Model} | Updated Grill Model: <input id="new-grill-model"> <br>
+        Current City: ${grill.City} | Updated City: <input id="new-grill-city">
         <br/>
-        Cost per Hour: ${grill.Cost}<input id="new-grill-cost"> | 
-        Delivery Fee: ${grill.DeliveryFee}<input id="new-grill-delivery">
-        <br/>
+        Current Cost per Hour: ${grill.Cost} | Updated Cost per Hour: <input id="new-grill-cost"> <br>
+        Current Delivery Fee: ${grill.DeliveryFee} | Updated Delivery Fee: <input id="new-grill-delivery">
         <br/>
         <button id ="edit-${grill.Id}-button">Edit this Grill</button>
         </h4>`));
@@ -130,7 +130,7 @@ function editButtonFunctionality (grill) {
                     method: "PUT",
                     data: grill
             }).done(function(){
-                alert("Successfully Updated")
+                alert("You Go Grill!")
                 //reload page with new results
                 runGrillSearch();
             }).fail(function (xhr, status, err) {
