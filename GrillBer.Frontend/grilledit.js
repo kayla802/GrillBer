@@ -85,7 +85,7 @@ function deleteButtonFunctionality (grill) {
            url: `${apiHostBase}/grill/${grill.Id}`,
            method: "Delete"
        }).done(function() {
-           alert("Successfully Deleted");
+           alert("Grill, Bye!");
            runGrillSearch();
         })        
        .fail(function (xhr, status, err) {

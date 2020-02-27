@@ -145,7 +145,7 @@ body {
 .background {
     background: rgba(255, 255, 255, 0.685);
     margin: 10%;
-    margin-top: 0%;
+    margin-top: 5%;
 }
 
 h1 {
@@ -327,6 +327,11 @@ form {
 #new-user-btn {
     width: 90%;
     text-align: center;
+}
+
+.flex-container {
+    display: flex;
+    align-items: flex-end;
 }
 
 #new-grill-div {
