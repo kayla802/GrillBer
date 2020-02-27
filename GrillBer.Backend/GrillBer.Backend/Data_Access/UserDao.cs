@@ -40,7 +40,7 @@ namespace GrillBer.Backend.Data_Access
 		public User GetUserByUsername(string username)
 		{
 			var userCol = db.GetCollection<User>("Users");
-            return userCol.Find(u => u.Username == username).First();
+            return userCol.Find(u => u.Username == username).FirstOrDefault();
 		}
 
 		public IEnumerable<User> GetAllUsers()
