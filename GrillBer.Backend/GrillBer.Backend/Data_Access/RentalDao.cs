@@ -17,8 +17,8 @@ namespace GrillBer.Backend.Data_Access
                 Id = Guid.NewGuid(),
                 User = inRental.User,
                 Grill = inRental.Grill,
-                Start = DateTime.Now,
-                End = inRental.End != default(DateTime) ? inRental.End : DateTime.Now.AddHours(2)
+                Start = inRental.Start,
+                End = inRental.End //!= default(DateTime) ? inRental.End : DateTime.Now.AddHours(2)
 
             };
 
