@@ -1,5 +1,7 @@
 let apiHostBase = `https://localhost:44329/api`;
 
+$(function () {
+
 // Add click event to "Add New Grill"
 $("#new-grill-btn").click(function () {
     /**@type {Grill} grill */
@@ -19,7 +21,8 @@ $("#new-grill-btn").click(function () {
                 method: "POST",
                 data: grill
             }).done(function () {
-                refresh();
+                alert("Grillcrush Alert!")
+                //refresh();
                 $("#new-grill-owner").val(""),
                     $("#new-grill-brand").val(""),
                     $("#new-grill-model").val(""),
@@ -33,7 +36,6 @@ $("#new-grill-btn").click(function () {
                 });
 
         })
-
-
+    })
 
 });
