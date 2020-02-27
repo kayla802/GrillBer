@@ -7,6 +7,7 @@
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"
         integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
     <!-- main.js -->
+    <script src="listgrill.js"></script>
 
 </head>
 
@@ -42,11 +43,35 @@
             <div class="ml-2 flex-row">
                 <div id="grill-list-div" class="flex-column">
                     <!-- <table id="grill-list-table" class="table-border mr-2 mt-2"> -->
-                        <thead>
-                            <h1>I've Been Waiting ... For A Grill Like You ... </h1>
-                        </thead>
-                        <tbody>
+                    <thead>
+                        <h1>I've Been Waiting ... For A Grill Like You ... </h1>
+                    </thead>
+                    <tbody>
+                        <div id="left-bar" class="leftBar">
 
-                        </tbody>
+                            <div id="new-grill-div" class="newGrill">
+                                <h3>Add a new grill here!</h3>
+                                <hr class="width-100">
+                                <label class="display-block">Owner:</label>
+                                <input id="new-grill-owner">
+                                <label class="mt-2 display-block">City</label>
+                                <input id="new-grill-city">
+                                <label class="display-block">Brand:</label>
+                                <input id="new-grill-brand">
+                                <label class="mt-2 display-block">Model:</label>
+                                <input id="new-grill-model">
+                                <label class="mt-2 display-block">Cost per Hour:</label>
+                                <input id="new-grill-cost">
+                                <label class="mt-2 display-block">Delivery Fee:</label>
+                                <input id="new-grill-delivery">
+
+                                <button id="new-grill-btn" class="display-block width-100">Submit</button>
+                            </div>
+                            <div id="grill-edit-div">
+                                <a href="./grilledit.html">View/Edit Your Grills</a>
+                            </div>
+
+                        </div>
+                    </tbody>
                     <!-- </table> -->
                 </div>
