@@ -2,7 +2,7 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
-}
+}    
 
 .flex-column tr h4{
     width: 100%;
@@ -10,6 +10,10 @@
     text-align: center;
     line-height: 75px;
     font-size: 30px;
+}
+
+.flex-column .newGrill {
+    justify-content: center;
 }
 
 .flex-row {
@@ -321,23 +325,51 @@ form {
   border-style: solid;
   border-width: thin;
   border-color: #000000;
+  text-align: left;
+  justify-content: center;
 }
 
+/* #new-grill-owner {
+    width: 99%;
+}
+
+#new-grill-city {
+    width: 99%;
+}
+
+#new-grill-brand {
+    width: 99%;
+}
+
+#new-grill-model {
+    width: 99%;
+}
+
+#new-grill-cost {
+    width: 99%;
+} 
+
+#new-grill-delivery {
+    width: 99%;
+} */
+
 #new-user-username {
-    width: 98%;
+    width: 99%;
 }
 
 #new-user-first-name {
-    width: 98%;
+    width: 99%;
 }
 
 #new-user-last-name {
-    width: 98%;
+    width: 99%;
 }
 
 #new-user-btn {
-    width: 90%;
+    width: 100%;
     text-align: center;
+    border-radius: 1%;
+    border-color: #000000;
 }
 
 .flex-container {
@@ -346,16 +378,15 @@ form {
 }
 
 #new-grill-div {
-    float: right;
+    width: 50%;
     clear: both;
     margin-top: 10px;
-    margin-right: 20px;
-    margin-left: 20px;
+    margin-right: 100px;
+    margin-left: 100px;
     border-style: solid;
     border-width: thin;
     border-color: #000000;
-    
-  background-color: #cf6e6e;
+    background-color: #cf6e6e;
   
 }
 #grill-edit-div {
