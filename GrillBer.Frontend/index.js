@@ -100,22 +100,18 @@ function addGrillToSearchResults(grill) {
             let grillRating = []
             grillRating.push(rating);
             console.log(grillRating[0]);
-
             var score = 0;
 
-            if(grillRating[0].length == 0)
-            {
+            if (grillRating[0].length == 0) {
                 score = "N/A";
             }
-            else
-            {
+            else {
                 score = rating[0].RatingScore;
             }
 
             console.log(score);
             let grillTableBody = $("#grill-list-table tbody");
             let grillRow = $("<tr>");
-
 
             grillRow.click(function () {
                 window.location.href = "./grillpage.html?grillId=" + grill.Id;
@@ -206,23 +202,5 @@ function populateModelUi(grills) {
     }
 }
 
-//Determines Grill Availability
-// function runDateSearch()
-// {
-//     $.ajax(`${apiHostBase}/grill`)
-//     .done(function (grills) {
-//         var availableGrills = []
 
-//         for (let grill of grills) {
-//             $.ajax(`${apiHostBase}/rental?grill=${grill.Id}`)
-//             .done(function (rentals) {
-//                     if (rentals.Start == $("#rental-date-select").text()) {
-//                         availableGrills.remove(grill);
-//                     }                        
-//             })
-//         }
-
-//     })
-
-// }
 
