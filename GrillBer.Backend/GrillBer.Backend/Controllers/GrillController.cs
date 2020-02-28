@@ -21,7 +21,7 @@ namespace GrillBer.Backend.Controllers
         }
 
 		[HttpGet]
-		public Grill[] GetGrills(string brand = null, string model = null, string city = null, int? cost = null, int? rating = null)
+		public Grill[] GetGrills(string brand = null, string model = null, string city = null, int? cost = null, string rating = null)
 		{
 			var grillDao = new GrillDao();
 			IEnumerable<Grill> grills = grillDao.GetGrills();
@@ -46,7 +46,7 @@ namespace GrillBer.Backend.Controllers
 				grills = grills.Where(g => g.Cost.Equals(cost));
 			}
 
-			if (rating.HasValue)
+			if (!string.IsNullOrWhiteSpace(rating))
 			{
 				grills = grills.Where(g => g.Rating.Equals(rating));
 			}

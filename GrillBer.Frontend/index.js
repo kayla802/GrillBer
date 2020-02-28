@@ -68,9 +68,10 @@ function runGrillSearch() {
     if ($("#cost-select :selected").text() !== "null") {
         searchParams.Cost = $("#cost-select :selected").text();
     }
-    if ($("#rating-select :selected").val() !== "null") {
-        searchParams.Rating = $("#rating-select :selected").val();
-    }
+    // if ($("#rating-select :selected").text() !== "null") {
+    //     searchParams.Rating = $("#rating-select :selected").text();
+    //     console.log(searchParams.Rating);
+    // }
 
     let searchParamsString = "";
     for (let searchParam in searchParams) {
@@ -85,7 +86,21 @@ function runGrillSearch() {
 
         url: `${apiHostBase}/grill?${searchParamsString}`,
         method: "GET"
-    }).done(populateSearchResults)
+    }).done(function (grills){
+        var availableGrills = []
+
+        for(let grill of grills){
+        $.ajax(`${apiHostBase}/rating?grillId=${grill.Id}`)
+        .done(function (ratings){
+            if ($("#rating-select :selected").text() !== "null") {
+                if(rating[0].RatingScore != $("#rating-select :selected").text())
+                {
+                    availableGrills.remove(grill);
+                }
+            }
+        })
+
+    }}).done(populateSearchResults)
         .fail(function (xhr, status, err) {
             alert("Ajax Failed. Is the backend running? Err;" + status)
         });
@@ -124,6 +139,7 @@ function addGrillToSearchResults(grill) {
 
             grillRow.addClass("mt-1");
             grillTableBody.append(grillRow);
+            console.log(score);
         });
 }
 
