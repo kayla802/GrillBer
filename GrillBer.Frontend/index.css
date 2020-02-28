@@ -377,8 +377,13 @@ form {
     align-items: flex-end;
 }
 
+#grill-list-div{
+    width: 100%;
+}
+
 #new-grill-div {
     width: 50%;
+    align-self: center;
     clear: both;
     margin-top: 10px;
     margin-right: 100px;

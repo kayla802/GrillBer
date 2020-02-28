@@ -28,6 +28,7 @@
                     <div class="my-dropdown-content">
                         <a href="./grilledit.html">My Grills</a>
                         <!-- <a href="./grilledit.html">Available Grills</a> -->
+                        <a href="./addrating.html">Rate a Grill</a>
                         <a href="./listgrill.html">List a Grill</a>
                     </div>
                 </div>
@@ -36,6 +37,40 @@
             <li><a href="../index.html">Home</a></li>
         </ul>
     </div>
+
+    <div class="modal fade" tabindex="-1" id="myModal" role="dialog" aria-hidden="true">
+        <div class="modal-dialog modal-sm">
+
+            <!-- Modal content-->
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title">Sign Up Here</h4>
+                </div>
+                <div class="modal-body">
+                    <div id="new-user-div" class="newUser">
+                        <h3>Add A New User</h3>
+                        <hr class="width-100">
+                        <label class="display-block">Username:</label>
+                        <input id="new-user-username">
+                        <label class="display-block">First Name:</label>
+                        <input id="new-user-first-name">
+                        <label class="mt-2 display-block">Last Name:</label>
+                        <input id="new-user-last-name">
+                        <br>
+                        <br>
+
+                        <button id="new-user-btn" class="display-block-width-100">Submit</button>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    
 
     <a href="./index.html">
         <img src="Photos\Grillber logo.png" width=300 px>
@@ -46,10 +81,11 @@
             <div class="ml-2 flex-row">
                 <div id="grill-list-div" class="flex-column">
                     <!-- <table id="grill-list-table" class="table-border mr-2 mt-2"> -->
-                    <thead>
+                   
                         <h1>I've Been Waiting ... For A Grill Like You ... </h1>
-                    </thead>
-                    <tbody>
+                   
+                    <hr class= "width-100">
+                    
                         <!-- <div id="left-bar" class="leftBar"> -->
 
                             <div id="new-grill-div" class="newGrill">
@@ -75,6 +111,6 @@
                             </div>
 
                         <!-- </div> -->
-                    </tbody>
+                   
                     <!-- </table> -->
                 </div>
