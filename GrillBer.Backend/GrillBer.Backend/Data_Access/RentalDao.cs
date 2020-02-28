@@ -4,6 +4,7 @@ using LiteDB;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Linq.Expressions;
 
 namespace GrillBer.Backend.Data_Access
 {
@@ -31,6 +32,16 @@ namespace GrillBer.Backend.Data_Access
         {
             var RentalCol = db.GetCollection<Rental>("Rentals");
             return RentalCol.FindAll().ToArray();
+
+        }
+
+        public Rental[] GetRentals(Expression<Func<Rental, bool>> predicate = null)
+        {
+            var rentalCol = db.GetCollection<Rental>("Rental");
+            return predicate == null
+                ? rentalCol.FindAll().ToArray()
+                : rentalCol.Find(predicate).ToArray();
+
 
         }
 

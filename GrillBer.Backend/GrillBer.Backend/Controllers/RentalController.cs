@@ -21,18 +21,22 @@ namespace GrillBer.Backend.Controllers
         }
 
         [HttpGet]
-
-        public Rental[] GetAllRentals(Guid? grillId = null)
+        public Rental[] GetAllRentals(Guid? grill = null, Guid? user = null)
         {
             var rentalDao = new RentalDao();
             IEnumerable<Rental> rentals = rentalDao.GetAllRentals();
 
-            if (grillId != null)
+            if (grill != null)
             {
-                rentals = rentals.Where(g => g.Grill.Equals(grillId));
+                rentals = rentals.Where(g => g.Grill.Equals(grill));
                 return rentals.ToArray();
             }
 
+            if (user != null)
+            {
+                rentals = rentals.Where(r => r.User.Equals(user));
+                return rentals.ToArray();
+            }
             else
             {
                 return rentals.ToArray();
