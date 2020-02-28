@@ -13,25 +13,25 @@ $(function () {
             LastName: $("#new-user-last-name").val().toString()
         }
         $.ajax(`${apiHostBase}/user/${user.Username}`).done(function (founduser) {
-           if (founduser !== null) {
-            alert("Please select another Username")  
-           }
-           else {
-            $.ajax({
-                url: `${apiHostBase}/user`,
-                method: "POST",
-                data: user
-            }).done(function () {
-                refresh();
-                $("#new-user-username").val(""),
-                    $("#new-user-first-name").val(""),
-                    $("#new-user-last-name").val("")
-            })
-                .fail(function (xhr, status, err) {
-                    alert("Ajax Failed. Is the backend running? Err:" + status)
-                });
-           }
-            
+            if (founduser !== null) {
+                alert("Please select another Username")
+            }
+            else {
+                $.ajax({
+                    url: `${apiHostBase}/user`,
+                    method: "POST",
+                    data: user
+                }).done(function () {
+                    refresh();
+                    $("#new-user-username").val(""),
+                        $("#new-user-first-name").val(""),
+                        $("#new-user-last-name").val("")
+                })
+                    .fail(function (xhr, status, err) {
+                        alert("Ajax Failed. Is the backend running? Err:" + status)
+                    });
+            }
+
         })
     });
 
@@ -101,16 +101,30 @@ function addGrillToSearchResults(grill) {
             grillRating.push(rating);
             console.log(grillRating[0]);
 
+            var score = 0;
+
+            if(grillRating[0].length == 0)
+            {
+                score = "N/A";
+            }
+            else
+            {
+                score = rating[0].RatingScore;
+            }
+
+            console.log(score);
             let grillTableBody = $("#grill-list-table tbody");
             let grillRow = $("<tr>");
+
+
             grillRow.click(function () {
                 window.location.href = "./grillpage.html?grillId=" + grill.Id;
             })
             grillRow.append($(`<td>${grill.City}</td>
-    <td>${grill.Brand}</td>
-    <td>${grill.Model}</td>
-    <td>${grill.Cost}</td>
-    <td>${rating[0].RatingScore}</td>`));
+            <td>${grill.Brand}</td>
+            <td>${grill.Model}</td>
+            <td>${grill.Cost}</td>
+            <td>${score}</td>`));
 
             grillRow.addClass("mt-1");
             grillTableBody.append(grillRow);
