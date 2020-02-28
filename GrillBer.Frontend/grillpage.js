@@ -76,7 +76,7 @@ function renderGrillPage(grill) {
                 ratingUserId.push(rating.UserId)
                 console.log(ratingUserId)
             }
-            renderRatings(previousRatings);
+            //renderRatings(previousRatings);
             //renderRatingUserName(ratingUserId);
 
 

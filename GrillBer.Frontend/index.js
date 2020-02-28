@@ -68,10 +68,9 @@ function runGrillSearch() {
     if ($("#cost-select :selected").text() !== "null") {
         searchParams.Cost = $("#cost-select :selected").text();
     }
-    // if ($("#rating-select :selected").text() !== "null") {
-    //     searchParams.Rating = $("#rating-select :selected").text();
-    //     console.log(searchParams.Rating);
-    // }
+    if ($("#rating-select :selected").text() !== "null") {
+        searchParams.Rating = $("#rating-select :selected").text();
+    }
 
     let searchParamsString = "";
     for (let searchParam in searchParams) {
@@ -81,26 +80,26 @@ function runGrillSearch() {
         searchParamsString += searchParam + "=" + searchParams[searchParam];
     }
     clearSearchResultsAndSayLoading();
-
     $.ajax({
-
         url: `${apiHostBase}/grill?${searchParamsString}`,
         method: "GET"
-    }).done(function (grills){
-        var availableGrills = []
+    })
+    // .done(function (grills){
+    //     var availableGrills = []
 
-        for(let grill of grills){
-        $.ajax(`${apiHostBase}/rating?grillId=${grill.Id}`)
-        .done(function (ratings){
-            if ($("#rating-select :selected").text() !== "null") {
-                if(rating[0].RatingScore != $("#rating-select :selected").text())
-                {
-                    availableGrills.remove(grill);
-                }
-            }
-        })
+    //     for(let grill of grills){
+    //     $.ajax(`${apiHostBase}/rating?grillId=${grill.Id}`)
+    //     .done(function (ratings){
+    //         if ($("#rating-select :selected").text() !== "null") {
+    //             if(rating[0].RatingScore != $("#rating-select :selected").text())
+    //             {
+    //                 availableGrills.remove(grill);
+    //             }
+    //         }
+    //     })
 
-    }}).done(populateSearchResults)
+    // }})
+    .done(populateSearchResults)
         .fail(function (xhr, status, err) {
             alert("Ajax Failed. Is the backend running? Err;" + status)
         });
@@ -111,20 +110,18 @@ function runGrillSearch() {
 
 function addGrillToSearchResults(grill) {
     $.ajax(`${apiHostBase}/rating?grillId=${grill.Id}`)
-        .done(function (rating) {
-            let grillRating = []
-            grillRating.push(rating);
-            console.log(grillRating[0]);
-            var score = 0;
+        // .done(function (rating) {
+        //     let grillRating = []
+        //     grillRating.push(rating);
+        //     console.log(grillRating[0]);
+        //     var score = 0;
 
-            if (grillRating[0].length == 0) {
-                score = "N/A";
-            }
-            else {
-                score = rating[0].RatingScore;
-            }
-
-            console.log(score);
+        //     if (grillRating[0].length == 0) {
+        //         score = "N/A";
+        //     }
+        //     else {
+        //         score = rating[0].RatingScore;
+        //     }
             let grillTableBody = $("#grill-list-table tbody");
             let grillRow = $("<tr>");
 
@@ -134,13 +131,18 @@ function addGrillToSearchResults(grill) {
             grillRow.append($(`<td>${grill.City}</td>
             <td>${grill.Brand}</td>
             <td>${grill.Model}</td>
-            <td>${grill.Cost}</td>
-            <td>${score}</td>`));
+            <td>${grill.Cost}</td>`));
+            if (grill.Rating == 0){
+                grillRow.append($(`<td>No Ratings</td>`));
+            }
+            else{
+                grillRow.append($(`<td>${grill.Rating}</td>`));
+            }
+            
 
             grillRow.addClass("mt-1");
             grillTableBody.append(grillRow);
-            console.log(score);
-        });
+        //});
 }
 
 //Clears search results and says loading. Should be used be ajax request to populate with search
