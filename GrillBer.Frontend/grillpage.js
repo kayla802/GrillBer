@@ -30,6 +30,7 @@ $(function () {
                     method: "POST",
                     data: rental
                 }).done(function () {
+                    alert("I guess this means you're my #grillfriend now")
                     $("#user-select").val(""),
                         $("#new-rental-grill").val(""),
                         $("#new-rental-start").val(""),
