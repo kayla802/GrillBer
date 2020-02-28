@@ -131,8 +131,14 @@ function addGrillToSearchResults(grill) {
             grillRow.append($(`<td>${grill.City}</td>
             <td>${grill.Brand}</td>
             <td>${grill.Model}</td>
-            <td>${grill.Cost}</td>
-            <td>${grill.Rating}</td>`));
+            <td>${grill.Cost}</td>`));
+            if (grill.Rating == 0){
+                grillRow.append($(`<td>No Ratings</td>`));
+            }
+            else{
+                grillRow.append($(`<td>${grill.Rating}</td>`));
+            }
+            
 
             grillRow.addClass("mt-1");
             grillTableBody.append(grillRow);

@@ -124,7 +124,7 @@ function addButtonFunctionality(grill, rental) {
 
 
 function updateRatingTotal(grill) {
-    $.ajax(`${apiHostBase}/rating?Grill=${grill.Id}`)
+    $.ajax(`${apiHostBase}/rating?GrillId=${grill.Id}`)
         .done(function (ratings) {
             var ratingCount = ratings.length;
             var ratingsTotal = 0
